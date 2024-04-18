@@ -18,7 +18,44 @@ async function AuthRouter(fastify) {
      * @returns {object} 400 - Respuesta de error con un mensaje indicando los errores de validación en los datos del usuario.
      * @returns {object} 500 - Respuesta de error interno del servidor.
      */
-    fastify.post('/api/v1/auth/generateAccessToken', async function (req, res) {
+    fastify.post('/api/v1/auth/generateAccessToken', {
+        schema: {
+            tags: ['Authentication'],
+            summary: 'Genera un token de acceso para un usuario autenticado',
+            body: {
+                type: 'object',
+                properties: {
+                    email: { type: 'string', format: 'email' },
+                    userid: { type: 'number' },
+                    password: { type: 'string', minLength: 4, maxLength: 20 }
+                },
+                required: ['email', 'userid', 'password']
+            },
+            response: {
+                200: {
+                    type: 'object',
+                    properties: {
+                        token: { type: 'string' },
+                        email: { type: 'string' }
+                    }
+                },
+                400: {
+                    type: 'object',
+                    properties: {
+                        error: { type: 'boolean' },
+                        msg: { type: 'string' }
+                    }
+                },
+                500: {
+                    type: 'object',
+                    properties: {
+                        error: { type: 'boolean' },
+                        msg: { type: 'string' }
+                    }
+                }
+            }
+        }
+    }, async function (req, res) {
         try {
 
             // Verificar si req.body está definido
@@ -80,11 +117,21 @@ async function AuthRouter(fastify) {
      * @returns {object} 500 - Respuesta de error interno del servidor.
      */
     fastify.get('/api/v1/auth/validateToken', {
-        preValidation: [fastify.jwtauthenticate]
-    }, async (req, res) => {
-        res.status(200).send({ msg: "Successfully authenticated" });
-    });
+        preValidation: [fastify.jwtauthenticate],
+        schema: {
+            description: "Ruta para validar un token de autenticación JWT.",
+            tags: ['Authentication'],
+            summary: 'Validar token JWT',
+            security: [{ "bearerAuth": [] }]
+        }
 
+    }, async (req, res) => {
+        try {
+            res.status(200).send({ msg: "Successfully authenticated" });
+        } catch (error) {
+            throw boom.boomify(error);
+        }
+    });
 }
 
 export default AuthRouter;

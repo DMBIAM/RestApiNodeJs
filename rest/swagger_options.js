@@ -12,9 +12,19 @@ export const SwaggerOptions = {
         description: 'Find more info here',
       },
       host: 'localhost:8000',
-      schemes: ['http'],
+      schemes: ["http", "https"],
       consumes: ['application/json'],
       produces: ['application/json'],
+      tags: [{ name: "Default", description: "Default" }],
+      securityDefinitions: {
+        bearerAuth: {
+          type: 'apiKey',
+          name: 'Authorization',
+          in: 'header',
+          description: 'JWT Token',
+        },
+      },
+      security: [{ bearerAuth: [] }],
     },
   };
   

@@ -9,6 +9,7 @@
     },
     "author": "David Martinez",
     "dependencies": {
+        "@fastify/autoload": "^5.8.0",
         "@fastify/cors": "^8.0.0",
         "@fastify/jwt": "^5.0.0",
         "@fastify/swagger": "^7.0.0",
