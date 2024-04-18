@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  app:
+    container_name: app
+    image: app_restapi_nodejs
+    build: 
+      dockerfile: Dockerfile
+    privileged: true
+    ports:
+      - "8000:8000"
+    networks:
+      - default
+    dns: 
+      - "8.8.8.8"
+      - "1.1.1.1"
+    volumes:
+      - ./rest:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
