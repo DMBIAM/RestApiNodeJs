@@ -4,6 +4,7 @@ import fastifySwagger from '@fastify/swagger';
 import fastifyCors from '@fastify/cors';
 import authMiddleware from './middleware/auth_middleware.mjs';
 import AuthRouter from './routes/api/auth/authRouter.js';
+import UsersRouter from './routes/api/users/usersRouter.js';
 import fastifyJwt from '@fastify/jwt';
 
 // Crear una instancia de Fastify con registro de logs
@@ -20,6 +21,9 @@ fastify.register(authMiddleware);
 
 // Registrar el router de autenticación
 fastify.register(AuthRouter);
+
+// Registrar el router de usuarios
+fastify.register(UsersRouter);
 
 // Registrar el plugin de Swagger para la documentación de la API
 fastify.register(fastifySwagger, SwaggerOptions);
@@ -39,16 +43,6 @@ fastify.addContentTypeParser('application/json', { parseAs: 'string' }, (req, bo
 fastify.get('/test/cas', async function (req, res) {  
   return { test : 'test'};
 });
-
-/*
-// Ruta de prueba
-fastify.get('/test/cas', { 
-  onRequest: [fastify.jwtauthenticate] 
-}, async function (req, res) {  
-  return { test : 'test'};
-});
-
-*/
 
 // Escuchar en el puerto especificado
 try {

@@ -8,17 +8,6 @@ async function AuthRouter(fastify) {
         return emailRegex.test(String(email).toLowerCase());
     };
 
-    // Middleware para validar el token JWT
-    fastify.decorate('jwtauthenticate', async function (req, res) {
-        try {
-            await req.jwtVerify();
-        } catch (error) {
-            // Enviar un mensaje de error si el token no es válido
-            res.status(401).send({ error: true, msg: "Invalid or expired JWT token" });
-        }
-    });
-
-
     /**
      * Genera un token de acceso para un usuario autenticado.
      * 
