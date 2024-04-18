@@ -1,5 +1,5 @@
 # Build Step
-FROM node:latest
+FROM node:20-alpine
 
 # Workdir principal
 WORKDIR /app
