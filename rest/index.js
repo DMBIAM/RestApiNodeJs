@@ -6,6 +6,9 @@ import authMiddleware from './middleware/auth_middleware.mjs';
 import AuthRouter from './routes/api/auth/authRouter.js';
 import UsersRouter from './routes/api/users/usersRouter.js';
 import fastifyJwt from '@fastify/jwt';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // Crear una instancia de Fastify con registro de logs
 const fastify =  Fastify({ logger:true });

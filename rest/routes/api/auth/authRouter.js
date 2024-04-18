@@ -53,6 +53,13 @@ async function AuthRouter(fastify) {
                 return;
             }
 
+            // Comparar con las variables de entorno
+            const { AUTH_EMAIL, AUTH_USERID, AUTH_PASSWORD } = process.env;
+            if (email !== AUTH_EMAIL || Number(userid) !== Number(AUTH_USERID) || password !== AUTH_PASSWORD) {
+                res.status(401).send({ error: true, msg: "Invalid credentials" });
+                return;
+            }
+
             // Generar token si todas las validaciones son superadas
             const token = fastify.jwt.sign({ email, userid, password }, { expiresIn: 26400 });
             res.status(200).send({ token, email });

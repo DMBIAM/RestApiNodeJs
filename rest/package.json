@@ -13,6 +13,7 @@
         "@fastify/jwt": "^5.0.0",
         "@fastify/swagger": "^7.0.0",
         "boom": "^7.3.0",
+        "dotenv": "^16.4.5",
         "fastify": "^4.26.1",
         "fastify-cors": "^6.1.0",
         "fastify-jwt": "^4.2.0",
