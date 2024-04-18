@@ -1,0 +1,22 @@
+{
+    "name": "apirest_nodejs",
+    "version": "1.0.0",
+    "description": "API REST en Node.js",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "David Martinez",
+    "dependencies": {
+        "@fastify/cors": "^9.0.1",
+        "@fastify/swagger": "^8.14.0",
+        "fastify": "^4.26.1"
+    },
+    "devDependencies": {
+      "nodemon": "^3.1.0"
+    },
+    "nodemonConfig": {
+        "legacyWatch": true
+    }
+}

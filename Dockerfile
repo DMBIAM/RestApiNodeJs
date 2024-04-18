@@ -1,13 +1,19 @@
 # Build Step
-FROM node:19
+FROM node:latest
+
+# Workdir principal
 WORKDIR /app
-COPY package.json .
-RUN npm install
 
-COPY /rest .
+COPY ./rest/package.json ./rest/package-lock.json* ./
 
+# Install dependencies
+RUN npm install --quiet
+
+# Expose port
 EXPOSE 8000
 
+# Accept request since any host
 ENV ADDRESS=0.0.0.0 PORT=8000
 
-CMD ["node", "app.js"]
+# Start 
+CMD ["npx", "nodemon", "index.js"]
