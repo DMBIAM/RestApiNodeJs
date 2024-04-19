@@ -204,3 +204,6 @@ La tabla ciudad contiene:
 - `updated_at`: TIMESTAMP por defecto para el evento de actualización de un registro
 
 Nota: Este DML es para apoyo, para efectos prácticos del ejercicio el llenado de la información de realizó de forma manual, ya que no se construyó un CRUD para poblar estos datos 
+
+### Modelo relacional de la base de datos
+![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/pic-evidence/relational_database_model.png)
