@@ -5,7 +5,6 @@ const addUsersModels = {
     async createUsers({ name, email }) {
         openConnection();
         return new Promise((resolve, reject) => {
-            const createdAt = new Date().getTime();
             const query = 'INSERT INTO users (name, email) VALUES (?, ?)';
             const values = [name, email];            
             connection.query(query, values, (error, results) => {
