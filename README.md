@@ -177,7 +177,7 @@ Este CRUD permite realizar las operaciones básicas para relacionar un usuario a
 ### DDL Asistentes
 ```sql
 -- Crear la tabla "assistans"
-CREATE TABLE assistans (
+CREATE TABLE assistants (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_user INT,
     id_event INT,
@@ -189,7 +189,7 @@ CREATE TABLE assistans (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 ```
-Esto crea la tabla assistans con las siguientes columnas:
+Esto crea la tabla assistants con las siguientes columnas:
 
 - `id`: Un identificador único para cada asistente, autoincremental y definido como la clave primaria.
 - `id_user`: Un campo que establece la relación con la tabla users, almacenando el ID del usuario que es asistente del  evento. Este campo está configurado como una llave foránea que hace referencia al campo id de la tabla users.
@@ -199,8 +199,31 @@ Esto crea la tabla assistans con las siguientes columnas:
 
 
 ### DML Asistentes
+
+1. **Listar todos los asistentes**
+```sql
+SELECT assistants.id, 
+       users.name AS user_name,
+       users.email AS user_email,
+       events.name AS event_name,
+       city.name AS city_name,
+       country.name AS country_name,
+       assistants.created_at,
+       assistants.updated_at
+FROM assistants
+JOIN users ON assistants.id_user = users.id
+JOIN events ON assistants.id_event = events.id
+JOIN city ON events.id_city = city.id
+JOIN country ON city.id_country = country.id;
+```
+
+Permite Listar todos los asistentes registrados en la tabla assistants
+
+2. **Listar un asistente por un parámetro predefinido**
 // TODO
 
+3. **Listar un asistente por un lugar cercano**
+// TODO
 
 ## DML País y Ciudad 
 
