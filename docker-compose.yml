@@ -1,7 +1,35 @@
 version: '3.1'
 services:
-  app:
-    container_name: app
+  db:
+    container_name: api_db
+    image: mysql:5.7
+    command: 
+      - --default-authentication-plugin=mysql_native_password
+      - --innodb-buffer-pool-size=1G
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_general_ci
+    environment:
+      MYSQL_DATABASE: $BD_NAME
+      MYSQL_USER: $BD_PASSWORD_USER
+      MYSQL_PASSWORD: $BD_PASSWORD_ROOT
+      MYSQL_ROOT_PASSWORD: $BD_PASSWORD_ROOT 
+    volumes:
+      - ./dump:/docker-entrypoint-initdb.d
+      - api_db:/var/lib/mysql
+    ports:
+      - "$PORT_MYSQL:3306"
+    networks:
+      - default
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: $RAM_MAX_DB
+        reservations:
+          cpus: '0.25'
+          memory: $RAM_MAX_DB
+  api:
+    container_name: api
     image: app_restapi_nodejs
     build: 
       dockerfile: Dockerfile
@@ -18,3 +46,9 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=development
+    depends_on:
+      - db
+    links: 
+          - db:db
+volumes:
+  api_db:
