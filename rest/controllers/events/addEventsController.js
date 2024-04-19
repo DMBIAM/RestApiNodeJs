@@ -18,7 +18,11 @@ const AddEventsController = {
       res.status(201).send({ msg: "New event created", newEvent });
       return
     } catch (error) {
-      res.status(500).send({ error: true, msg: "Internal Server Error, try again later" });
+      if (error.status === 400) {
+          res.status(400).send({ error: true, msg: error.message });
+      } else {
+          res.status(500).send({ error: true, msg: "Internal Server Error, try again later" });
+      }
       return;
     }
   }
