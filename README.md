@@ -11,15 +11,15 @@ El proyecto utiliza variables de entorno para agilizar el proceso de recuperaci�
 ## Swagger 
 Para acceder a la interfaz de Swagger, se deberá ingresar a http://localhost:8000/documentation/static/index.html, recuerde cambiar el nombre de su host, en el caso de utilizar uno diferente a localhost
 
-![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/pic-evidence/swagger.png)
+![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/pic-evidence/swagger.png)
 
 ## Autenticación
 
-![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/pic-evidence/swagger-auth.png)
+![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/pic-evidence/swagger-auth.png)
 
 Para la utilización del api Rest, se deberá utilizar un token que estará formado mediante JWT, para solicitarlo se deberá realizar una petición al endPoint correspondiente y pasar como body las credenciales bases para simular la creación del token JWT
 
-![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/pic-evidence/swagger-auth-get-token.png)
+![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/pic-evidence/swagger-auth-get-token.png)
 
 Para la practica se utilizaron datos básicos almacenados en el archivo .env para simular la autenticación y generación del token
 
@@ -44,7 +44,7 @@ Este CRUD permite realizar las operaciones básicas sobre un objeto usuario, des
 
 Dentro del Swagger bajo el Tag 'Users' podrá encontrar todos los recursos disponibles para el CRUD de usuarios
 
-![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/pic-evidence/swagger-user-endpoint.png)
+![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/pic-evidence/swagger-user-endpoint.png)
 
 
 ### DDL Usuarios
