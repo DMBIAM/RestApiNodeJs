@@ -1,6 +1,7 @@
 import boom from 'boom';
 import AddUsersController  from '../../../controllers/users/addUsersController.js';
 import GetAllUsersController  from '../../../controllers/users/getAllUsersController.js';
+import GetOneUsersController  from '../../../controllers/users/getOneUsersController.js';
 
 async function UsersRouter(fastify) {
     
@@ -40,9 +41,8 @@ async function UsersRouter(fastify) {
         }
     }, async function (req, res) {  
         try {
-            // TODO GET USER BY ID
-            //const getOneUser = await GetOneUsersController.getOneUser(req, res);
-            //return getOneUser;
+            const getOneUser = await GetOneUsersController.getOneUser(req, res);
+            return getOneUser;
         } catch (error) {
             throw boom.boomify(error);
         }

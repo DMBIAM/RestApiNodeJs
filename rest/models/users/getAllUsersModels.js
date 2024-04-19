@@ -1,19 +1,23 @@
-import connection from '../../middleware/connection_bd.mjs';
-import { closeConnection, openConnection } from '../../middleware/dbUtils.mjs';
+import pool from '../../middleware/connection_bd.mjs';
 
 const getAllUsersModels = {
     async getAllUsers() {
-        openConnection();
         return new Promise((resolve, reject) => {
-            const query = 'SELECT * FROM users';
-            connection.query(query, (error, results) => {
+            pool.getConnection((error, connection) => {
                 if (error) {
-                    reject({ status: 500, message: 'Internal Server Error, try again later' }); 
+                    reject({ status: 500, message: 'Internal Server Error connection, try again later' });
                 } else {
-                    resolve({ status: 200, message: 'Users retrieved successfully', data: results });
-                }
-                closeConnection();
-            });
+                    const query = 'SELECT * FROM users';
+                    connection.query(query, (error, results) => {
+                        connection.release();
+                        if (error) {
+                            reject({ status: 500, message: 'Internal Server Error, try again later' }); 
+                        } else {
+                            resolve({ status: 200, message: 'Users retrieved successfully', data: results });
+                        }
+                    });
+                }   
+            });         
         });
     },  
 }
