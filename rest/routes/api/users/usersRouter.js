@@ -1,4 +1,5 @@
 import boom from 'boom';
+import AddUsersController  from '../../../controllers/users/addUsersController.js';
 
 async function UsersRouter(fastify) {
     
@@ -64,9 +65,8 @@ async function UsersRouter(fastify) {
         }
     }, async function (req, res) {  
         try {
-            const userData = req.body;
-            // TODO INFO USER TO INSERT
-            res.status(200).send({ msg: "New user created", userData });
+            const newUser = await AddUsersController.addUser(req);
+            res.status(201).send({ msg: "New user created", newUser });
         } catch (error) {
             throw boom.boomify(error);
         }
