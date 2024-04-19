@@ -1,5 +1,6 @@
 import boom from 'boom';
 import AddUsersController  from '../../../controllers/users/addUsersController.js';
+import GetAllUsersController  from '../../../controllers/users/getAllUsersController.js';
 
 async function UsersRouter(fastify) {
     
@@ -14,8 +15,8 @@ async function UsersRouter(fastify) {
         }
     }, async function (req, res) {  
         try {
-            //const getAllUser = await GetAllUsersController.getAllUser(req, res);
-            //return getAllUser;
+            const getAllUser = await GetAllUsersController.getAllUser(req, res);
+            return getAllUser;
         } catch (error) {
             throw boom.boomify(error);
         }
