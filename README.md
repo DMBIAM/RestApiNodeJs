@@ -110,6 +110,10 @@ Este SQL eliminará el registro de la tabla users correspondiente al ID de usuar
 
 Este CRUD permite realizar las operaciones básicas sobre un objeto evento, desde el CREATE, INSERT, UPDATE, DELETE, SELECT
 
+Dentro del Swagger bajo el Tag 'Events' podrá encontrar todos los recursos disponibles para el CRUD de eventos
+
+![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/pic-evidence/swagger-events-endpoint.png)
+
 ### DDL Eventos
 ```sql
 CREATE TABLE events (
@@ -132,7 +136,39 @@ Esto crea la tabla eventos con las siguientes columnas:
 - `updated_at`: TIMESTAMP por defecto para el evento de actualización de un registro
 
 ### DML Eventos
-// TODO
+
+1. **Insertar nuevo evento**
+
+```sql
+INSERT INTO events (name, id_city) VALUES ('nombre_evento', 'id_ciudad');
+```
+
+Este SQL insertará un nuevo registro en la tabla events con el nombre y el identificador de la ciudad previamente creado.
+
+2. **Consultar todos los eventos**
+
+```sql
+SELECT * FROM events;
+```
+Este SQL recuperará todos los registros de la tabla events, devolviendo información sobre todos los eventos almacenados en la base de datos.
+
+3. **Consultar evento por un ID**
+```sql
+SELECT * FROM events WHERE id = id_evento;
+```
+Este SQL recuperará el registro de la tabla events correspondiente al ID de evento especificado.
+
+4. **Actualizar evento**
+```sql
+UPDATE events SET nombre_columna = 'nuevo_valor' WHERE id = id_evento;
+```
+Este SQL actualizará la información de un evento específico en la tabla events. Se debe reemplazar nombre_columna por el nombre de la columna que deseas actualizar (por ejemplo, name o id_city) y nuevo_valor por el nuevo valor que deseas asignar a esa columna
+
+5. **Eliminar evento**
+```sql
+DELETE FROM events WHERE id = id_evento;
+```
+Este SQL eliminará el registro de la tabla events correspondiente al ID de evento especificado.
 
 ## CRUD Asignar asistentes
 
