@@ -54,7 +54,9 @@ Dentro del Swagger bajo el Tag 'Users' podrá encontrar todos los recursos dispo
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE
+    email VARCHAR(255) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 );
 ```
 Este código SQL crea una tabla llamada `users` con tres columnas:
@@ -62,6 +64,8 @@ Este código SQL crea una tabla llamada `users` con tres columnas:
 - `id`: Es un campo entero autoincremental que sirve como identificador único para cada usuario.
 - `name`: Es un campo de tipo VARCHAR que almacena el nombre del usuario. Este campo no puede estar vacío (NOT NULL).
 - `email`: Es un campo de tipo VARCHAR que almacena la dirección de correo electrónico del usuario. Para el ejemplo la tabla usuario almacena el email como ejemplo base, pero en la practica recomendada debe existir una tabla llamada email para que se almacenen todos los email que un usuario pueda tener, de esta forma podemos llevar una relación una a muchos, donde un usuario puede tener multiples direcciones de correo
+- `created_at`: TIMESTAMP por defecto para el evento de creación de un registro
+- `updated_at`: TIMESTAMP por defecto para el evento de actualización de un registro
 
 Este esquema asegura que cada usuario tenga un identificador único en la base de datos.
 
@@ -107,7 +111,25 @@ Este SQL eliminará el registro de la tabla users correspondiente al ID de usuar
 Este CRUD permite realizar las operaciones básicas sobre un objeto evento, desde el CREATE, INSERT, UPDATE, DELETE, SELECT
 
 ### DDL Eventos
-// TODO
+```sql
+CREATE TABLE events (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    id_city INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_city) REFERENCES city(id)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+```
+Esto crea la tabla eventos con las siguientes columnas:
+
+- `id`: Un identificador único para cada evento, autoincremental y definido como la clave primaria.
+- `name`: Un campo de texto para almacenar el nombre del evento.
+- `id_city`: Un campo que establece la relación con la tabla ciudad, almacenando el ID de la ciudad donde se llevará a cabo el evento. Este campo está configurado como una llave foránea que hace referencia al campo id de la tabla ciudad.
+- `created_at`: TIMESTAMP por defecto para el evento de creación de un registro
+- `updated_at`: TIMESTAMP por defecto para el evento de actualización de un registro
 
 ### DML Eventos
 // TODO
@@ -117,7 +139,68 @@ Este CRUD permite realizar las operaciones básicas sobre un objeto evento, desd
 Este CRUD permite realizar las operaciones básicas para relacionar un usuario a uno o varios evento como asistentes, desde el CREATE, INSERT, UPDATE, DELETE, SELECT
 
 ### DDL Asistentes
-// TODO
+```sql
+-- Crear la tabla "assistans"
+CREATE TABLE assistans (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_user INT,
+    id_event INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_user) REFERENCES users(id),
+    FOREIGN KEY (id_event) REFERENCES events(id)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+```
+Esto crea la tabla assistans con las siguientes columnas:
+
+- `id`: Un identificador único para cada asistente, autoincremental y definido como la clave primaria.
+- `id_user`: Un campo que establece la relación con la tabla users, almacenando el ID del usuario que es asistente del  evento. Este campo está configurado como una llave foránea que hace referencia al campo id de la tabla users.
+- `id_event`: Un campo que establece la relación con la tabla events, almacenando el ID del evento al cual el usuario asiste. Este campo está configurado como una llave foránea que hace referencia al campo id de la tabla events.
+- `created_at`: TIMESTAMP por defecto para el evento de creación de un registro
+- `updated_at`: TIMESTAMP por defecto para el evento de actualización de un registro
+
 
 ### DML Asistentes
 // TODO
+
+
+## DML País y Ciudad 
+
+```sql
+-- Crear la tabla "pais"
+CREATE TABLE country (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+-- Crear la tabla "ciudad"
+CREATE TABLE city (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    id_country INT,
+    FOREIGN KEY (id_country) REFERENCES country(id)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+```
+
+Esto creará dos tablas en tu base de datos:
+
+La tabla pais contiene:
+- `id`: un identificador único para cada país, autoincremental.
+- `name`: un campo de texto para almacenar el nombre del país.
+- `created_at`: TIMESTAMP por defecto para el evento de creación de un registro
+- `updated_at`: TIMESTAMP por defecto para el evento de actualización de un registro
+
+La tabla ciudad contiene:
+- `id`: un identificador único para cada ciudad, autoincremental.
+- `name`: un campo de texto para almacenar el nombre de la ciudad.
+- `id_country`: un campo que establece la relación con la tabla pais, almacenando el ID del país al que pertenece la ciudad. Este campo está configurado como una llave foránea que hace referencia al campo id de la tabla pais.
+- `created_at`: TIMESTAMP por defecto para el evento de creación de un registro
+- `updated_at`: TIMESTAMP por defecto para el evento de actualización de un registro
+
+Nota: Este DML es para apoyo, para efectos prácticos del ejercicio el llenado de la información de realizó de forma manual, ya que no se construyó un CRUD para poblar estos datos 
