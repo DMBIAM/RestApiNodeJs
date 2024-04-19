@@ -2,6 +2,8 @@ import boom from 'boom';
 import AddUsersController  from '../../../controllers/users/addUsersController.js';
 import GetAllUsersController  from '../../../controllers/users/getAllUsersController.js';
 import GetOneUsersController  from '../../../controllers/users/getOneUsersController.js';
+import UpdateUsersController from '../../../controllers/users/updateUsersController.js';
+import DeleteUsersController from '../../../controllers/users/deleteUsersController.js';
 
 async function UsersRouter(fastify) {
     
@@ -75,19 +77,13 @@ async function UsersRouter(fastify) {
     });
 
     // Ruta para actualizar un usuario por su ID
-    fastify.put('/api/v1/users/:id', { 
+    fastify.put('/api/v1/users', { 
         preValidation: [fastify.jwtauthenticate],
         schema: {
             description: "Actualizar un usuario por su ID.",
             tags: ['Users'],
             summary: 'Actualizar un usuario por su ID',
             security: [{ "bearerAuth": [] }],
-            params: {
-                type: 'object',
-                properties: {
-                    id: { type: 'string' }
-                }
-            },
             body: {
                 type: 'object',
                 properties: {
@@ -100,24 +96,22 @@ async function UsersRouter(fastify) {
         }
     }, async function (req, res) {  
         try {
-            
-            // TODO USER UPDATE
-            //const updateUser = await UpdateUsersController.updateUser(req, res);
-            //return updateUser;
+            const updateUser = await UpdateUsersController.updateUser(req, res);
+            return updateUser;
         } catch (error) {
             throw boom.boomify(error);
         }
     });
 
     // Ruta para eliminar un usuario por su ID
-    fastify.delete('/api/v1/users/:id', { 
+    fastify.delete('/api/v1/users', { 
         preValidation: [fastify.jwtauthenticate],
         schema: {
             description: "Eliminar un usuario por su ID.",
             tags: ['Users'],
             summary: 'Eliminar un usuario por su ID',
             security: [{ "bearerAuth": [] }],
-            params: {
+            body: {
                 type: 'object',
                 properties: {
                     id: { type: 'number' }
@@ -127,10 +121,8 @@ async function UsersRouter(fastify) {
         }
     }, async function (req, res) {  
         try {
-            const userId = req.params.id;
-            // TODO DELETED USER
-            //const deleteUser = await DeleteUsersController.deleteUser(req, res);
-            //return deleteUser;
+            const deleteUser = await DeleteUsersController.deleteUser(req, res);
+            return deleteUser;
         } catch (error) {
             throw boom.boomify(error);
         }
