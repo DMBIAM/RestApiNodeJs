@@ -9,7 +9,7 @@ const addUsersModels = {
             const values = [name, email];            
             connection.query(query, values, (error, results) => {
                 if (error) {
-                    reject({ status: 500, message: 'Internal Server Error' }); 
+                    reject({ status: 500, message: 'Internal Server Error, try again later' }); 
                 } else {
                     resolve({ status: 201, message: 'User created successfully', data: { id: results.insertId, name, email } });
                 }

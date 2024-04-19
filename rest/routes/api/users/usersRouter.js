@@ -14,7 +14,8 @@ async function UsersRouter(fastify) {
         }
     }, async function (req, res) {  
         try {
-            res.status(200).send({ msg: "Show All users" });
+            //const getAllUser = await GetAllUsersController.getAllUser(req, res);
+            //return getAllUser;
         } catch (error) {
             throw boom.boomify(error);
         }
@@ -39,8 +40,8 @@ async function UsersRouter(fastify) {
     }, async function (req, res) {  
         try {
             // TODO GET USER BY ID
-            const userId = req.params.id;
-            res.status(200).send({ msg: `Show user with ID ${userId}` });
+            //const getOneUser = await GetOneUsersController.getOneUser(req, res);
+            //return getOneUser;
         } catch (error) {
             throw boom.boomify(error);
         }
@@ -65,8 +66,8 @@ async function UsersRouter(fastify) {
         }
     }, async function (req, res) {  
         try {
-            const newUser = await AddUsersController.addUser(req);
-            res.status(201).send({ msg: "New user created", newUser });
+            const newUser = await AddUsersController.addUser(req, res);
+            return newUser;
         } catch (error) {
             throw boom.boomify(error);
         }
@@ -98,10 +99,10 @@ async function UsersRouter(fastify) {
         }
     }, async function (req, res) {  
         try {
-            const userId = req.params.id;
-            const userData = req.body;
+            
             // TODO USER UPDATE
-            res.status(200).send({ msg: `User with ID ${userId} updated`, userData });
+            //const updateUser = await UpdateUsersController.updateUser(req, res);
+            //return updateUser;
         } catch (error) {
             throw boom.boomify(error);
         }
@@ -127,7 +128,8 @@ async function UsersRouter(fastify) {
         try {
             const userId = req.params.id;
             // TODO DELETED USER
-            res.status(200).send({ msg: `User with ID ${userId} deleted` });
+            //const deleteUser = await DeleteUsersController.deleteUser(req, res);
+            //return deleteUser;
         } catch (error) {
             throw boom.boomify(error);
         }
