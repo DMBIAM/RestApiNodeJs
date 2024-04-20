@@ -52,6 +52,16 @@ function updateEvent(connection, idEvent, newData, resolve, reject) {
         updateValues.push(newData.city);
     }
 
+    if (newData.location_name) {
+        updateFields.push('location_name = ?');
+        updateValues.push(newData.location_name);
+    }
+
+    if (newData.location) {
+        updateFields.push('location = ST_GeomFromText(?)');
+        updateValues.push(`POINT(${newData.location.latitude} ${newData.location.longitude})`);
+    }
+
     // Verificar que al menos un campo de actualización esté presente
     if (updateFields.length === 0) {
         connection.release();

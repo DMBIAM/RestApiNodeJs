@@ -63,8 +63,17 @@ async function UsersRouter(fastify) {
                 properties: {
                     name: { type: 'string' },
                     city: { type: 'number' },
+                    location_name: { type: 'string' },
+                    location: {
+                        type: 'object',
+                        properties: {
+                            latitude: { type: 'number' },
+                            longitude: { type: 'number' }
+                        },
+                        required: ['latitude', 'longitude']
+                    }
                 },
-                required: ['name', 'city']
+                required: ['name', 'city', 'location_name', 'location']
             }
         }
     }, async function (req, res) {  
@@ -89,7 +98,16 @@ async function UsersRouter(fastify) {
                 properties: {
                     name: { type: 'string' },
                     city: { type: 'number' },
-                    id: { type: 'number' }
+                    id: { type: 'number' },
+                    location_name: { type: 'string' },
+                    location: {
+                        type: 'object',
+                        properties: {
+                            latitude: { type: 'number' },
+                            longitude: { type: 'number' }
+                        },
+                        required: ['latitude', 'longitude']
+                    }
                 },
                 required: ['id']
             }

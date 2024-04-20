@@ -119,6 +119,8 @@ Dentro del Swagger bajo el Tag 'Events' podrá encontrar todos los recursos disp
 CREATE TABLE events (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255),
+    location POINT,
+    location_name VARCHAR(255),
     id_city INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -131,6 +133,8 @@ Esto crea la tabla eventos con las siguientes columnas:
 
 - `id`: Un identificador único para cada evento, autoincremental y definido como la clave primaria.
 - `name`: Un campo de texto para almacenar el nombre del evento.
+- `location`: Campo destinado para almacenar las coordenadas del lugar del evento ejemplo: 10.9408 -74.78618
+- `location_name`: Campo destinado para almacenar en nombre del lugar asociado al evento
 - `id_city`: Un campo que establece la relación con la tabla ciudad, almacenando el ID de la ciudad donde se llevará a cabo el evento. Este campo está configurado como una llave foránea que hace referencia al campo id de la tabla ciudad.
 - `created_at`: TIMESTAMP por defecto para el evento de creación de un registro
 - `updated_at`: TIMESTAMP por defecto para el evento de actualización de un registro
@@ -140,7 +144,7 @@ Esto crea la tabla eventos con las siguientes columnas:
 1. **Insertar nuevo evento**
 
 ```sql
-INSERT INTO events (name, id_city) VALUES ('nombre_evento', 'id_ciudad');
+INSERT INTO events (name, id_city, location) VALUES ('nombre_evento', 'id_ciudad', POINT(10.9408 -74.78618));
 ```
 
 Este SQL insertará un nuevo registro en la tabla events con el nombre y el identificador de la ciudad previamente creado.
@@ -220,7 +224,32 @@ JOIN country ON city.id_country = country.id;
 Permite Listar todos los asistentes registrados en la tabla assistants
 
 2. **Listar un asistente por un parámetro predefinido**
-// TODO
+```sql
+SELECT assistants.id, 
+       users.name AS user_name,
+       users.email AS user_email,
+       events.id AS event_id,
+       events.name AS event_name,
+       city.name AS city_name,
+       country.name AS country_name,
+       assistants.created_at,
+       assistants.updated_at
+FROM assistants
+JOIN users ON assistants.id_user = users.id
+JOIN events ON assistants.id_event = events.id
+JOIN city ON events.id_city = city.id
+JOIN country ON city.id_country = country.id
+WHERE 
+    (user_name IS NULL OR users.name = user_name) AND
+    (user_id IS NULL OR users.id = user_id) AND
+    (user_email IS NULL OR users.email = user_email) AND
+    (event_id IS NULL OR events.id = event_id) AND
+    (event_name IS NULL OR events.name = event_name) AND
+    (city_id IS NULL OR city.id = city_id) AND
+    (city_name IS NULL OR city.name = city_name) AND
+    (country_id IS NULL OR country.id = country_id) AND
+    (country_name IS NULL OR country.name = country_name);
+```
 
 3. **Listar un asistente por un lugar cercano**
 // TODO

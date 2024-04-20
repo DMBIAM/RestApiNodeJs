@@ -1,7 +1,7 @@
 import pool from '../../middleware/connection_bd.mjs';
 
 const addEventsModels = {
-    async createEvent({ name, city }) {
+    async createEvent({ name, city, location_name, location }) {
         return new Promise((resolve, reject) => {
             pool.getConnection((error, connection) => {
                 if (error) {
@@ -16,8 +16,8 @@ const addEventsModels = {
                             connection.release();
                             reject({ status: 400, message: 'The city ID entered does not exist' });
                         } else {
-                            const insertEventQuery = 'INSERT INTO events (name, id_city) VALUES (?, ?)';
-                            const values = [name, city];
+                            const insertEventQuery = 'INSERT INTO events (name, id_city, location_name, location) VALUES (?, ?, ?, ST_GeomFromText(?))';
+                            const values = [name, city, location_name, `POINT(${location.latitude} ${location.longitude})`];
                             connection.query(insertEventQuery, values, (error, results) => {
                                 connection.release();
                                 if (error) {
