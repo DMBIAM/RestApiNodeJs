@@ -334,9 +334,9 @@ Ubicación: rest\resources\bd\api_db.sql
 
 // TODO 
 
-Manejo de Librerías y Procesamiento de Archivos Excel: (falta todo)
-Manejo de Ubicaciones Cercanas con Mapbox : (falta todo)
-Utilización e implementación de Docker: (falta las 5 replicas mediante kubernetes)
-Conocimientos sobre Servidores, Infraestructura y DevOps: (Falta habilitar Github action)
+- Manejo de Librerías y Procesamiento de Archivos Excel: (falta todo)
+- Manejo de Ubicaciones Cercanas con Mapbox : (falta todo)
+- Utilización e implementación de Docker: (falta las 5 replicas mediante kubernetes)
+- Conocimientos sobre Servidores, Infraestructura y DevOps: (Falta habilitar Github action)
 
 
