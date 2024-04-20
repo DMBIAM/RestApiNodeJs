@@ -9,7 +9,6 @@ const updateEventsModels = {
                 } else {                    
                     const checkQuery = 'SELECT id FROM events WHERE id = ?';
                     connection.query(checkQuery, [idEvent], (error, results) => {
-                        console.log(idEvent);
                         if (error) {
                             connection.release();
                             reject({ status: 500, message: 'Internal Server Error, try again later' });
@@ -51,6 +50,16 @@ function updateEvent(connection, idEvent, newData, resolve, reject) {
     if (newData.city) {
         updateFields.push('id_city = ?');
         updateValues.push(newData.city);
+    }
+
+    if (newData.location_name) {
+        updateFields.push('location_name = ?');
+        updateValues.push(newData.location_name);
+    }
+
+    if (newData.location) {
+        updateFields.push('location = ST_GeomFromText(?)');
+        updateValues.push(`POINT(${newData.location.latitude} ${newData.location.longitude})`);
     }
 
     // Verificar que al menos un campo de actualización esté presente
