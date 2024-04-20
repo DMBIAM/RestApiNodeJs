@@ -174,6 +174,21 @@ DELETE FROM events WHERE id = id_evento;
 ```
 Este SQL eliminará el registro de la tabla events correspondiente al ID de evento especificado.
 
+6.  **Buscar evento cercano mediante coorenada**
+```sql
+SELECT 
+    events.id, 
+    events.name, 
+    city.name AS city_name,
+    events.location,
+    ST_Distance_Sphere(events.location, ST_GeomFromText('POINT($latitud $longitud)')) AS distance
+FROM events
+JOIN city ON events.id_city = city.id
+ORDER BY distance
+LIMIT 1;
+```
+Este SQL permitirá buscar un evento cercano, pasando como parámetro una coordenada. Recuerde reemplazar $latitud y $longitud por sus valores correspondientes.
+
 ## CRUD Asignar asistentes
 
 Este CRUD permite realizar las operaciones básicas para relacionar un usuario a uno o varios evento como asistentes, desde el CREATE, INSERT, UPDATE, DELETE, SELECT
@@ -250,10 +265,6 @@ WHERE
     (country_id IS NULL OR country.id = country_id) AND
     (country_name IS NULL OR country.name = country_name);
 ```
-
-3. **Listar un asistente por un lugar cercano**
-// TODO
-
 ## DML País y Ciudad 
 
 ```sql

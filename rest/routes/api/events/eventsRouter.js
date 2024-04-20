@@ -4,6 +4,7 @@ import GetAllEventsController  from '../../../controllers/events/getAllEventsCon
 import GetOneEventsController  from '../../../controllers/events/getOneEventsController.js';
 import UpdateEventsController from '../../../controllers/events/updateEventsController.js';
 import DeleteEventsController from '../../../controllers/events/deleteEventsController.js';
+import SearchNearestEventController from '../../../controllers/events/searchNearestEventController.js'; 
 
 async function UsersRouter(fastify) {
     
@@ -116,6 +117,84 @@ async function UsersRouter(fastify) {
         try {
             const updateEvent = await UpdateEventsController.updateEvent(req, res);
             return updateEvent;
+        } catch (error) {
+            throw boom.boomify(error);
+        }
+    });
+
+    // Ruta para buscar el evento más cercano dada una coordenada
+    fastify.get('/api/v1/events/searchNearest', { 
+        preValidation: [fastify.jwtauthenticate],
+        schema: {
+            description: "Buscar el evento más cercano dada una coordenada.",
+            tags: ['Events'],
+            summary: 'Buscar el evento más cercano',
+            security: [{ "bearerAuth": [] }],
+            querystring: {
+                type: 'object',
+                properties: {
+                    latitude: { type: 'number' },
+                    longitude: { type: 'number' },
+                    limit: { type: 'number' }
+                },
+                required: ['latitude', 'longitude']
+            },
+            response: {
+                200: {
+                    description: 'Successful response',
+                    type: 'object',
+                    properties: {
+                        msg: { type: 'string' },
+                        nearestEvent: {
+                            type: 'object',
+                            properties: {
+                                status: { type: 'number' },
+                                message: { type: 'string' },
+                                data: {
+                                    type: 'array',
+                                    items: {
+                                        type: 'object',
+                                        properties: {
+                                            id: { type: 'number' },
+                                            name: { type: 'string' },
+                                            city_name: { type: 'string' },
+                                            location: {
+                                                type: 'object',
+                                                properties: {
+                                                    x: { type: 'number' },
+                                                    y: { type: 'number' }
+                                                }
+                                            },
+                                            distance: { type: 'number' }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                404: {
+                    description: 'Nearest event not found',
+                    type: 'object',
+                    properties: {
+                        error: { type: 'boolean' },
+                        msg: { type: 'string' }
+                    }
+                },
+                500: {
+                    description: 'Internal Server Error',
+                    type: 'object',
+                    properties: {
+                        error: { type: 'boolean' },
+                        msg: { type: 'string' }
+                    }
+                }
+            }
+        }
+    }, async function (req, res) {  
+        try {
+            const searchNearestEvent = await SearchNearestEventController.searchNearestEvent(req, res);
+            return searchNearestEvent;
         } catch (error) {
             throw boom.boomify(error);
         }
