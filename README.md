@@ -313,3 +313,6 @@ Nota: Este DML es para apoyo, para efectos prácticos del ejercicio el llenado d
 
 ### Modelo relacional de la base de datos
 ![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/pic-evidence/relational_database_model.png)
+
+### Dump de la base de datos
+Ubicación: rest\bd\api_db.sql
