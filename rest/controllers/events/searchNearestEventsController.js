@@ -1,6 +1,6 @@
-import searchNearestEventModels from '../../models/events/searchNearestEventModels.js';
+import searchNearestEventsModels from '../../models/events/searchNearestEventsModels.js';
 
-const SearchNearestEventController = {
+const SearchNearestEventsController = {
   async searchNearestEvent(req, res) {
     try {      
       const { latitude, longitude, limit } = req.query;
@@ -9,7 +9,7 @@ const SearchNearestEventController = {
         return res.status(400).send({ error: true, msg: "Latitude and longitude parameters are required" });
       }
 
-      const nearestEvent = await searchNearestEventModels.searchNearestEvent(latitude, longitude, limit);
+      const nearestEvent = await searchNearestEventsModels.searchNearestEvent(latitude, longitude, limit);
 
       res.status(200).send({ msg: "Nearest event retrieved", nearestEvent });
     } catch (error) {
@@ -23,4 +23,4 @@ const SearchNearestEventController = {
   }
 };
 
-export default SearchNearestEventController;
+export default SearchNearestEventsController;

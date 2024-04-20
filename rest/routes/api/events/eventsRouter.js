@@ -4,7 +4,8 @@ import GetAllEventsController  from '../../../controllers/events/getAllEventsCon
 import GetOneEventsController  from '../../../controllers/events/getOneEventsController.js';
 import UpdateEventsController from '../../../controllers/events/updateEventsController.js';
 import DeleteEventsController from '../../../controllers/events/deleteEventsController.js';
-import SearchNearestEventController from '../../../controllers/events/searchNearestEventController.js'; 
+import SearchNearestEventsController from '../../../controllers/events/searchNearestEventsController.js'; 
+import AttendancePerDayEventsController from '../../../controllers/events/attendancePerDayEventsController.js'; 
 
 async function UsersRouter(fastify) {
     
@@ -193,7 +194,7 @@ async function UsersRouter(fastify) {
         }
     }, async function (req, res) {  
         try {
-            const searchNearestEvent = await SearchNearestEventController.searchNearestEvent(req, res);
+            const searchNearestEvent = await SearchNearestEventsController.searchNearestEvent(req, res);
             return searchNearestEvent;
         } catch (error) {
             throw boom.boomify(error);
@@ -224,6 +225,73 @@ async function UsersRouter(fastify) {
             throw boom.boomify(error);
         }
     });
+
+    // Ruta para calcular la cantidad de asistentes por día de la semana
+    fastify.post('/api/v1/events/attendancePerDay', { 
+        preValidation: [fastify.jwtauthenticate],
+        schema: {
+            description: "Cantidad de asistentes por día de la semana, para efecto del ejercicio el evento se celebra el dia que se crea el registro de asistencia de un usuario.",
+            tags: ['Events'],
+            summary: 'Calcular la cantidad de asistentes por día de la semana.',
+            security: [{ "bearerAuth": [] }],
+            body: {
+                type: 'array',
+                items: {
+                    type: 'object',
+                    properties: {
+                        id_event: { type: 'number' },
+                        date: { type: 'string', format: 'date' }
+                    },
+                    required: ['id_event', 'date']
+                }
+            },
+            response: {
+                200: {
+                    type: 'object',
+                    properties: {
+                        msg: { type: 'string' },
+                        attendancePerDay: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    date: { type: 'string', format: 'date' },
+                                    day_of_week: { type: 'string' },
+                                    attendance_count: { type: 'number' },
+                                    event_id: { type: 'number' },
+                                    event_name: { type: 'string' },
+                                }
+                            }
+                        }
+                    }
+                },
+                404: {
+                    description: 'Nearest event not found',
+                    type: 'object',
+                    properties: {
+                        error: { type: 'boolean' },
+                        msg: { type: 'string' }
+                    }
+                },
+                500: {
+                    description: 'Internal Server Error',
+                    type: 'object',
+                    properties: {
+                        error: { type: 'boolean' },
+                        msg: { type: 'string' }
+                    }
+                }
+            }
+        }
+    }, async function (req, res) {  
+        try {
+            const attendancePerDay = await AttendancePerDayEventsController.calculateAttendancePerDay(req.body, req, res);
+            return attendancePerDay;
+        } catch (error) {
+            throw boom.boomify(error);
+        }
+    });
+
     
 }
 
