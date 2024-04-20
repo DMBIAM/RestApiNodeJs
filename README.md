@@ -265,6 +265,13 @@ WHERE
     (country_id IS NULL OR country.id = country_id) AND
     (country_name IS NULL OR country.name = country_name);
 ```
+3. **Registrar un asistante**
+```sql
+INSERT INTO assistants (id_user, id_event) VALUES ('id_user', 'id_event')
+```
+
+Permite agregar un asistente, es decir asociar un usuario a un evento. Recuerde reemplazar id_user y id_event por valores existentes en la tabla de usuarios y eventos, ya que la tabla assistants contiene la relación para poder registrar de forma correcta un asistente 
+
 ## DML País y Ciudad 
 
 ```sql
