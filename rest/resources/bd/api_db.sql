@@ -33,7 +33,7 @@ CREATE TABLE `assistants` (
   KEY `id_event` (`id_event`),
   CONSTRAINT `assistants_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
   CONSTRAINT `assistants_ibfk_2` FOREIGN KEY (`id_event`) REFERENCES `events` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `assistants` (
 
 LOCK TABLES `assistants` WRITE;
 /*!40000 ALTER TABLE `assistants` DISABLE KEYS */;
-INSERT INTO `assistants` VALUES (1,2,1,'2024-04-19 22:43:16','2024-04-19 22:43:16'),(2,3,2,'2024-04-19 22:43:16','2024-04-19 22:43:16'),(3,4,2,'2024-04-20 00:04:02','2024-04-20 00:04:02'),(4,7,4,'2024-04-20 02:39:10','2024-04-20 02:39:10');
+INSERT INTO `assistants` VALUES (1,2,1,'2024-04-19 22:43:16','2024-04-19 22:43:16'),(2,3,2,'2024-04-19 22:43:16','2024-04-19 22:43:16'),(3,4,2,'2024-04-20 00:04:02','2024-04-20 00:04:02'),(4,7,4,'2024-04-20 02:39:10','2024-04-20 02:39:10'),(5,7,3,'2024-04-20 14:07:23','2024-04-20 14:07:23'),(6,9,4,'2024-04-20 14:12:20','2024-04-20 14:12:20'),(7,11,4,'2024-04-20 14:12:33','2024-04-20 14:12:33'),(8,12,4,'2024-04-20 14:12:45','2024-04-20 14:12:45'),(9,13,4,'2024-04-20 14:12:49','2024-04-20 14:12:49');
 /*!40000 ALTER TABLE `assistants` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,6 +112,7 @@ CREATE TABLE `events` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `location` point NOT NULL,
   `location_name` varchar(255) NOT NULL,
+  `date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_city` (`id_city`),
   CONSTRAINT `events_ibfk_1` FOREIGN KEY (`id_city`) REFERENCES `city` (`id`)
@@ -124,7 +125,7 @@ CREATE TABLE `events` (
 
 LOCK TABLES `events` WRITE;
 /*!40000 ALTER TABLE `events` DISABLE KEYS */;
-INSERT INTO `events` VALUES (1,'Juegos Olimpicos',1,'2024-04-19 21:00:32','2024-04-20 00:43:14',_binary '\0\0\0\0\0\0\0$óˇê~%@46<ΩûR¿','Estadio Roberto Martinez'),(2,'Mundial de Futbol',2,'2024-04-19 21:01:04','2024-04-20 00:43:14',_binary '\0\0\0\0\0\0\0)\À«∫∏@L7âA`âR¿','Alcaldia de Bogota'),(3,'Mundial Ciclismo',2,'2024-04-19 21:01:04','2024-04-20 00:43:14',_binary '\0\0\0\0\0\0\0}?5^∫â@\◊ÚAœÇR¿','Estadio Nemesio Camacho El Campin de Bogota '),(4,'Mundial Natacion',1,'2024-04-19 21:09:19','2024-04-20 00:43:14',_binary '\0\0\0\0\0\0\0«∫∏ç0%@ÆG\·zíR¿','Estadio Metropolitano'),(6,'Mundial Ciclismo',3,'2024-04-19 21:10:41','2024-04-20 00:43:14',_binary '\0\0\0\0\0\0\0ô*ï\‘	\n@Ü\…T¡®S¿','Estadio Pascual Guerrero'),(7,'Evento de prueba',1,'2024-04-20 00:27:12','2024-04-20 00:43:14',_binary '\0\0\0\0\0\0\0R\'†â∞\·%@<1\Î\≈P≤R¿','Estadio de prueba'),(8,'Mundial de Yoga',1,'2024-04-20 01:01:01','2024-04-20 01:11:06',_binary '\0\0\0\0\0\0\0∂\\Gf?&@º \"5mµR¿','Hotel Movich Baranquilla');
+INSERT INTO `events` VALUES (1,'Juegos Olimpicos',1,'2024-04-19 21:00:32','2024-04-20 14:28:07',_binary '\0\0\0\0\0\0\0$óˇê~%@46<ΩûR¿','Estadio Roberto Martinez','2024-04-19 21:01:04'),(2,'Mundial de Futbol',2,'2024-04-19 21:01:04','2024-04-20 14:27:13',_binary '\0\0\0\0\0\0\0)\À«∫∏@L7âA`âR¿','Alcaldia de Bogota','2024-04-19 21:01:04'),(3,'Mundial Ciclismo',2,'2024-04-19 21:01:04','2024-04-20 14:27:13',_binary '\0\0\0\0\0\0\0}?5^∫â@\◊ÚAœÇR¿','Estadio Nemesio Camacho El Campin de Bogota ','2024-04-20 21:01:04'),(4,'Mundial Natacion',1,'2024-04-19 21:09:19','2024-04-20 14:25:50',_binary '\0\0\0\0\0\0\0«∫∏ç0%@ÆG\·zíR¿','Estadio Metropolitano','2024-04-20 14:12:33'),(6,'Mundial Ciclismo',3,'2024-04-19 21:10:41','2024-04-20 14:28:07',_binary '\0\0\0\0\0\0\0ô*ï\‘	\n@Ü\…T¡®S¿','Estadio Pascual Guerrero','2024-04-18 21:01:04'),(7,'Evento de prueba',1,'2024-04-20 00:27:12','2024-04-20 14:28:07',_binary '\0\0\0\0\0\0\0R\'†â∞\·%@<1\Î\≈P≤R¿','Estadio de prueba','2024-04-18 21:01:04'),(8,'Mundial de Yoga',1,'2024-04-20 01:01:01','2024-04-20 14:28:07',_binary '\0\0\0\0\0\0\0∂\\Gf?&@º \"5mµR¿','Hotel Movich Baranquilla','2024-04-19 21:01:04');
 /*!40000 ALTER TABLE `events` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-19 21:51:52
+-- Dump completed on 2024-04-20 10:31:38
