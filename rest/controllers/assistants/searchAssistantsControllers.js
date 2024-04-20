@@ -15,7 +15,6 @@ const SearchAssistantsController = {
         } = params;
 
         if (!user_name && !user_id && !user_email && !event_id && !event_name && !city_id && !city_name && !country_id && !country_name) {
-            console.log("aqui error");
             res.status(400).send({error : true, msg: "At least one search parameter must be provided" });
             return;
         }

@@ -9,7 +9,6 @@ const updateEventsModels = {
                 } else {                    
                     const checkQuery = 'SELECT id FROM events WHERE id = ?';
                     connection.query(checkQuery, [idEvent], (error, results) => {
-                        console.log(idEvent);
                         if (error) {
                             connection.release();
                             reject({ status: 500, message: 'Internal Server Error, try again later' });
