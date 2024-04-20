@@ -1,5 +1,5 @@
 import boom from 'boom';
-// import AddAssistantsController  from '../../../controllers/assistants/addAssistantsController.js';
+import AddAssistantsController  from '../../../controllers/assistants/addAssistantsController.js';
 import GetAllAssistantsController  from '../../../controllers/assistants/getAllAssistantsController.js';
 import SearchAssistantsController from '../../../controllers/assistants/searchAssistantsControllers.js';
 
@@ -118,8 +118,58 @@ async function AssistantsRouter(fastify) {
             throw boom.boomify(error);
         }
     });
-    
-    
+
+    // Ruta para agregar un nuevo asistente a un evento
+    fastify.post('/api/v1/assistants/add', { 
+        preValidation: [fastify.jwtauthenticate],
+        schema: {
+            description: "Agregar un nuevo asistente.",
+            tags: ['Assistants'],
+            summary: 'Agregar un nuevo asistente',
+            security: [{ "bearerAuth": [] }],
+            body: {
+                type: 'object',
+                properties: {
+                    id_user: { type: 'number' },
+                    id_event: { type: 'number' }
+                },
+                required: ['id_user', 'id_event']
+            },
+            response: {
+                200: {
+                    description: 'Successful response',
+                    type: 'object',
+                    properties: {
+                        msg: { type: 'string' },
+                        assistant: {
+                            type: 'object',
+                            properties: {
+                                status: { type: 'number' },
+                                message: { type: 'string' },
+                                data: {
+                                    type: 'object',
+                                    properties: {
+                                        id: { type: 'number' },
+                                        id_user: { type: 'number' },
+                                        id_event: { type: 'number' },
+                                        created_at: { type: 'string', format: 'date-time' },
+                                        updated_at: { type: 'string', format: 'date-time' }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }, async function (req, res) {  
+        try {
+            const addAssistant = await AddAssistantsController.addAssistant(req, res);
+            return addAssistant;
+        } catch (error) {
+            throw boom.boomify(error);
+        }
+    });
 }
 
 export default AssistantsRouter;
