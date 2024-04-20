@@ -6,6 +6,7 @@ import UpdateEventsController from '../../../controllers/events/updateEventsCont
 import DeleteEventsController from '../../../controllers/events/deleteEventsController.js';
 import SearchNearestEventsController from '../../../controllers/events/searchNearestEventsController.js'; 
 import AttendancePerDayEventsController from '../../../controllers/events/attendancePerDayEventsController.js'; 
+import ExcelUpdloadEventsController from '../../../controllers/events/excelUpdloadEventsController.js';
 
 async function UsersRouter(fastify) {
     
@@ -292,6 +293,34 @@ async function UsersRouter(fastify) {
         }
     });
 
+    // Ruta para cargar eventos desde un archivo Excel
+    fastify.post('/api/v1/events/uploadExcel', {
+        //preValidation: [fastify.jwtauthenticate],
+        schema: {
+            description: 'Upload events from an Excel file.',
+            tags: ['Events'],
+            summary: 'Upload events from Excel',
+            //security: [{ "bearerAuth": [] }],
+            consumes: ['multipart/form-data'],
+            
+            body: {
+                properties: {
+                    file: {
+                        type: 'string',
+                        format: 'binary'
+                    }
+                },
+                required: ['file']
+            }
+        }
+    }, async function (req, res) {  
+        try {
+            const resultUpdload  = await ExcelUpdloadEventsController.uploadExcelFile(req, res);
+            return resultUpdload ;
+        } catch (error) {
+            throw boom.boomify(error);
+        }
+    });
     
 }
 
