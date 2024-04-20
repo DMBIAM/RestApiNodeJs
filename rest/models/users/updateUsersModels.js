@@ -9,7 +9,6 @@ const updateUsersModels = {
                 } else {                    
                     const checkQuery = 'SELECT id FROM users WHERE id = ?';
                     connection.query(checkQuery, [idUser], (error, results) => {
-                        console.log(idUser);
                         if (error) {
                             connection.release();
                             reject({ status: 500, message: 'Internal Server Error, try again later' });

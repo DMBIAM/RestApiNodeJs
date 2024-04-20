@@ -5,6 +5,7 @@ import authMiddleware from './middleware/auth_middleware.mjs';
 import AuthRouter from './routes/api/auth/authRouter.js';
 import UsersRouter from './routes/api/users/usersRouter.js';
 import EventsRouter from './routes/api/events/eventsRouter.js';
+import AssistantsRouter from './routes/api/assistants/assistantsRouter.js';
 import fastifyJwt from '@fastify/jwt';
 import fastifySwagger from '@fastify/swagger';
 import path from 'path';
@@ -37,6 +38,9 @@ fastify.register(UsersRouter);
 
 // Registrar el router de eventos
 fastify.register(EventsRouter);
+
+// Registrar el router de asistentes
+fastify.register(AssistantsRouter);
 
 // Registrar el plugin de Swagger para la documentación de la API
 fastify.register(fastifySwagger, { ...SwaggerOptions });

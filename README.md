@@ -119,6 +119,8 @@ Dentro del Swagger bajo el Tag 'Events' podrá encontrar todos los recursos disp
 CREATE TABLE events (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255),
+    location POINT,
+    location_name VARCHAR(255),
     id_city INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -131,6 +133,8 @@ Esto crea la tabla eventos con las siguientes columnas:
 
 - `id`: Un identificador único para cada evento, autoincremental y definido como la clave primaria.
 - `name`: Un campo de texto para almacenar el nombre del evento.
+- `location`: Campo destinado para almacenar las coordenadas del lugar del evento ejemplo: 10.9408 -74.78618
+- `location_name`: Campo destinado para almacenar en nombre del lugar asociado al evento
 - `id_city`: Un campo que establece la relación con la tabla ciudad, almacenando el ID de la ciudad donde se llevará a cabo el evento. Este campo está configurado como una llave foránea que hace referencia al campo id de la tabla ciudad.
 - `created_at`: TIMESTAMP por defecto para el evento de creación de un registro
 - `updated_at`: TIMESTAMP por defecto para el evento de actualización de un registro
@@ -140,7 +144,7 @@ Esto crea la tabla eventos con las siguientes columnas:
 1. **Insertar nuevo evento**
 
 ```sql
-INSERT INTO events (name, id_city) VALUES ('nombre_evento', 'id_ciudad');
+INSERT INTO events (name, id_city, location) VALUES ('nombre_evento', 'id_ciudad', POINT(10.9408 -74.78618));
 ```
 
 Este SQL insertará un nuevo registro en la tabla events con el nombre y el identificador de la ciudad previamente creado.
@@ -170,6 +174,21 @@ DELETE FROM events WHERE id = id_evento;
 ```
 Este SQL eliminará el registro de la tabla events correspondiente al ID de evento especificado.
 
+6.  **Buscar evento cercano mediante coorenada**
+```sql
+SELECT 
+    events.id, 
+    events.name, 
+    city.name AS city_name,
+    events.location,
+    ST_Distance_Sphere(events.location, ST_GeomFromText('POINT($latitud $longitud)')) AS distance
+FROM events
+JOIN city ON events.id_city = city.id
+ORDER BY distance
+LIMIT 1;
+```
+Este SQL permitirá buscar un evento cercano, pasando como parámetro una coordenada. Recuerde reemplazar $latitud y $longitud por sus valores correspondientes.
+
 ## CRUD Asignar asistentes
 
 Este CRUD permite realizar las operaciones básicas para relacionar un usuario a uno o varios evento como asistentes, desde el CREATE, INSERT, UPDATE, DELETE, SELECT
@@ -177,7 +196,7 @@ Este CRUD permite realizar las operaciones básicas para relacionar un usuario a
 ### DDL Asistentes
 ```sql
 -- Crear la tabla "assistans"
-CREATE TABLE assistans (
+CREATE TABLE assistants (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_user INT,
     id_event INT,
@@ -189,7 +208,7 @@ CREATE TABLE assistans (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 ```
-Esto crea la tabla assistans con las siguientes columnas:
+Esto crea la tabla assistants con las siguientes columnas:
 
 - `id`: Un identificador único para cada asistente, autoincremental y definido como la clave primaria.
 - `id_user`: Un campo que establece la relación con la tabla users, almacenando el ID del usuario que es asistente del  evento. Este campo está configurado como una llave foránea que hace referencia al campo id de la tabla users.
@@ -199,9 +218,53 @@ Esto crea la tabla assistans con las siguientes columnas:
 
 
 ### DML Asistentes
-// TODO
 
+1. **Listar todos los asistentes**
+```sql
+SELECT assistants.id, 
+       users.name AS user_name,
+       users.email AS user_email,
+       events.name AS event_name,
+       city.name AS city_name,
+       country.name AS country_name,
+       assistants.created_at,
+       assistants.updated_at
+FROM assistants
+JOIN users ON assistants.id_user = users.id
+JOIN events ON assistants.id_event = events.id
+JOIN city ON events.id_city = city.id
+JOIN country ON city.id_country = country.id;
+```
 
+Permite Listar todos los asistentes registrados en la tabla assistants
+
+2. **Listar un asistente por un parámetro predefinido**
+```sql
+SELECT assistants.id, 
+       users.name AS user_name,
+       users.email AS user_email,
+       events.id AS event_id,
+       events.name AS event_name,
+       city.name AS city_name,
+       country.name AS country_name,
+       assistants.created_at,
+       assistants.updated_at
+FROM assistants
+JOIN users ON assistants.id_user = users.id
+JOIN events ON assistants.id_event = events.id
+JOIN city ON events.id_city = city.id
+JOIN country ON city.id_country = country.id
+WHERE 
+    (user_name IS NULL OR users.name = user_name) AND
+    (user_id IS NULL OR users.id = user_id) AND
+    (user_email IS NULL OR users.email = user_email) AND
+    (event_id IS NULL OR events.id = event_id) AND
+    (event_name IS NULL OR events.name = event_name) AND
+    (city_id IS NULL OR city.id = city_id) AND
+    (city_name IS NULL OR city.name = city_name) AND
+    (country_id IS NULL OR country.id = country_id) AND
+    (country_name IS NULL OR country.name = country_name);
+```
 ## DML País y Ciudad 
 
 ```sql
