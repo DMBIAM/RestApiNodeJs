@@ -119,6 +119,7 @@ Dentro del Swagger bajo el Tag 'Events' podrá encontrar todos los recursos disp
 CREATE TABLE events (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255),
+    date TIMESTAMP,
     location POINT,
     location_name VARCHAR(255),
     id_city INT,
@@ -174,7 +175,7 @@ DELETE FROM events WHERE id = id_evento;
 ```
 Este SQL eliminará el registro de la tabla events correspondiente al ID de evento especificado.
 
-6.  **Buscar evento cercano mediante coorenada**
+6.  **Buscar evento cercano mediante coordenada**
 ```sql
 SELECT 
     events.id, 
@@ -188,6 +189,20 @@ ORDER BY distance
 LIMIT 1;
 ```
 Este SQL permitirá buscar un evento cercano, pasando como parámetro una coordenada. Recuerde reemplazar $latitud y $longitud por sus valores correspondientes.
+
+7. **Calcular la cantidad de asistentes por día de la semana**
+```sql
+SELECT e.id AS event_id,
+    e.name AS event_name,
+    DATE_FORMAT(e.date, '%Y-%m-%d') AS date,
+    DAYNAME(e.date) AS day_of_week,
+    COUNT(*) AS attendance_count
+FROM assistants a
+INNER JOIN events e ON a.id_event = e.id
+WHERE DATE_FORMAT(e.date, '%Y-%m-%d') = ? AND a.id_event = ?
+GROUP BY event_id, event_name, date, day_of_week
+```
+Permite calcular la cantidad de asistentes por dia, pasado una serie de id asociados a eventos existentes. Recuerde cambiar el símbolo ? por el valor correspondiente a comparar
 
 ## CRUD Asignar asistentes
 
@@ -316,3 +331,12 @@ Nota: Este DML es para apoyo, para efectos prácticos del ejercicio el llenado d
 
 ### Dump de la base de datos
 Ubicación: rest\bd\api_db.sql
+
+// TODO 
+
+Manejo de Librerías y Procesamiento de Archivos Excel: (falta todo)
+Manejo de Ubicaciones Cercanas con Mapbox : (falta todo)
+Utilización e implementación de Docker: (falta las 5 replicas mediante kubernetes)
+Conocimientos sobre Servidores, Infraestructura y DevOps: (Falta habilitar Github action)
+
+

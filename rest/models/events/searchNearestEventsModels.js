@@ -1,6 +1,6 @@
 import pool from '../../middleware/connection_bd.mjs';
 
-const searchNearestEventModels = {
+const searchNearestEventsModels = {
   searchNearestEvent(latitude, longitude, limit = 1) {
     return new Promise((resolve, reject) => {
         pool.getConnection((error, connection) => {
@@ -34,4 +34,4 @@ const searchNearestEventModels = {
   }
 };
 
-export default searchNearestEventModels;
+export default searchNearestEventsModels;
