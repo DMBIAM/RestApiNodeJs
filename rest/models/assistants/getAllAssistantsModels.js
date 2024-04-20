@@ -11,6 +11,7 @@ const getAllAssistantsModels = {
                         SELECT assistants.id, 
                                users.name AS user_name,
                                users.email AS user_email,
+                               events.id AS event_id,
                                events.name AS event_name,
                                city.name AS city_name,
                                country.name AS country_name,
