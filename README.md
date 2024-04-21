@@ -332,11 +332,6 @@ Nota: Este DML es para apoyo, para efectos prácticos del ejercicio el llenado d
 ### Dump de la base de datos
 Ubicación: rest\resources\bd\api_db.sql
 
-// TODO 
 
-- Manejo de Librerías y Procesamiento de Archivos Excel: (falta todo)
-- Manejo de Ubicaciones Cercanas con Mapbox : (falta todo)
-- Utilización e implementación de Docker: (falta las 5 replicas mediante kubernetes)
-- Conocimientos sobre Servidores, Infraestructura y DevOps: (Falta habilitar Github action)
 
 
