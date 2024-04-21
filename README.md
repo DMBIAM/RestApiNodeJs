@@ -3,7 +3,31 @@ Build, rest Api whit Node Js and Fastify
 
 ## Instalación del proyecto
 
-// TODO
+El proyecto consta de una aplicación en NodeJs que permite realizar operaciones CRUD sobre una serie de endPoints dispuestos para la creación de usuarios, eventos, registro de asistentes (Usuarios que asisten a eventos). Todas las operaciones realizan transacciones hacia una base de datos relacional en MYSQL
+
+El proyecto está pensado para requerir una intervención mínima en el proceso de instalación, ya que se utiliza Docker para orquestar la infraestructura necesaria así como la conexión de red entre los contenedores, permitiendo que se instale de forma rápida la aplicación.
+
+Como punto inicial se deberá 
+
+1. Construir la imagen de Docker con el comando: docker build .
+2. Ejecutar el docker compose: docker-compose up -d
+
+En este punto se crearán los contenedores y las replicas de las imágenes del servicio api.
+Un punto a tener en cuenta es no modificar el docker-compose y asignarle nombres custom al servicio que orquestará la imagen de la api, esto debido a que se está utilizando replicas y se requiere que Docker administre los nombres para evitar colisiones, lo mismo aplicará para el mapeo de puertos, solo se deberá definir el puerto de destino, pero el puerto asociado al origen del host deberá ser controlado por Docker para evitar la utilización de puertos que no está libres.
+
+Si ha llegado a este punto, en su Docker Desktop podrá observar el contenedor y las imágenes ejecutándose de forma correcta, así como las réplicas
+
+![Docker](https://github.com/DMBIAM/RestApiNodeJs/blob/main/resources/pic-evidence/docker-container-and-replicas.png)
+
+Para corroborar que se tenga acceso desde su máquina host a la aplicación, en su docker ubique alguna de las replicas del api , luego anote el puerto de escucha de su máquina host, observará dos puertos separados por un dos puntos (:) el primer grupo de números que observe antes del : será el puerto que Docker reservó para pueda utilizar la aplicación, llegado a esta parte solo faltaría que en su navegador ingrese y escriba http://localhost:1234 donde 1234 será el puerto que Docker le asignó a su aplicación. El segundo grupo de números que observará en Docker asociado a su imagen después del : será el puerto interno de la aplicación, este siempre será el mismo para todas las replicas de una misma imagen, a menos que en el docker-compose se cambie
+
+Si llegó a este punto podrá observar algo como:
+
+![Docker](https://github.com/DMBIAM/RestApiNodeJs/blob/main/resources/pic-evidence/docker-run-api.png)
+
+Lo que indica que su servicio api está escuchando de forma correcta y está listo para ser consumido sus recursos como apiRest.
+
+Nota: La imagen de docker para el api rest en node, está preparada para realizar el clonado del proyecto de github y efectuar su instalación, para finalmente exponer el servicio de nodejs que permitirá utilizar la aplicación.
 
 ## Variables de entorno
 El proyecto utiliza variables de entorno para agilizar el proceso de recuperación de datos bases y protección de algunos datos sensibles como la llave privada para la construcción de token JWT, datos de conexión a la base de datos y otras variables que se reutilizan dentro del proyecto y que estando como variables de entorno podemos centralizar sus valores evitando tener data quemada en el código. 
@@ -11,15 +35,15 @@ El proyecto utiliza variables de entorno para agilizar el proceso de recuperaci�
 ## Swagger 
 Para acceder a la interfaz de Swagger, se deberá ingresar a http://localhost:8000/documentation/static/index.html, recuerde cambiar el nombre de su host, en el caso de utilizar uno diferente a localhost
 
-![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/resources/pic-evidence/swagger.png)
+![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/resources/pic-evidence/swagger.png)
 
 ## Autenticación
 
-![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/resources/pic-evidence/swagger-auth.png)
+![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/resources/pic-evidence/swagger-auth.png)
 
 Para la utilización del api Rest, se deberá utilizar un token que estará formado mediante JWT, para solicitarlo se deberá realizar una petición al endPoint correspondiente y pasar como body las credenciales bases para simular la creación del token JWT
 
-![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/resources/pic-evidence/swagger-auth-get-token.png)
+![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/resources/pic-evidence/swagger-auth-get-token.png)
 
 Para la practica se utilizaron datos básicos almacenados en el archivo .env para simular la autenticación y generación del token
 
@@ -44,7 +68,7 @@ Este CRUD permite realizar las operaciones básicas sobre un objeto usuario, des
 
 Dentro del Swagger bajo el Tag 'Users' podrá encontrar todos los recursos disponibles para el CRUD de usuarios
 
-![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/resources/pic-evidence/swagger-user-endpoint.png)
+![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/resources/pic-evidence/swagger-user-endpoint.png)
 
 
 ### DDL Usuarios
@@ -112,7 +136,7 @@ Este CRUD permite realizar las operaciones básicas sobre un objeto evento, desd
 
 Dentro del Swagger bajo el Tag 'Events' podrá encontrar todos los recursos disponibles para el CRUD de eventos
 
-![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/resources/pic-evidence/swagger-events-endpoint.png)
+![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/resources/pic-evidence/swagger-events-endpoint.png)
 
 ### DDL Eventos
 ```sql
@@ -327,11 +351,31 @@ La tabla ciudad contiene:
 Nota: Este DML es para apoyo, para efectos prácticos del ejercicio el llenado de la información de realizó de forma manual, ya que no se construyó un CRUD para poblar estos datos 
 
 ### Modelo relacional de la base de datos
-![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/rest/resources/pic-evidence/relational_database_model.png)
+![Swagger](https://github.com/DMBIAM/RestApiNodeJs/blob/main/resources/pic-evidence/relational_database_model.png)
 
 ### Dump de la base de datos
-Ubicación: rest\resources\bd\api_db.sql
+Ubicación: resources\bd\api_db.sql
 
+### Ejemplo de flujo CI/CD con Github Actions
+- \.github\workflows\ci.yml
+- \.github\workflows\ci.yml
 
+### Diagrama arquitectura híbrida on-premise y cloud
+![Architecture](https://github.com/DMBIAM/RestApiNodeJs/blob/main/resources/pic-evidence/hybrid_cloud_on_premise_architecture.png)
 
+Explicación:
+
+- `On-Premise Data`: Esta parte de la arquitectura representa la infraestructura local donde residen los datos de la aplicación.
+- `Cloud Service`s: Aquí se encuentran los servicios en la nube utilizados para alojar las aplicaciones y proporcionar servicios adicionales como almacenamiento, computación, redes, etc.
+- `API Gateway`: Actúa como punto de entrada único para todas las solicitudes de la API. Proporciona funciones de gestión de API como enrutamiento, balanceo de carga, limitación de velocidad, almacenamiento en caché y políticas de seguridad.
+- `API Server`: Es el componente que ejecuta la lógica de negocio de la API. Puede ser escalado horizontalmente para manejar una gran cantidad de solicitudes y garantizar la disponibilidad y el rendimiento.
+- `Database`: Almacena los datos de la aplicación. Será una base de datos SQL, dependiendo de los requisitos de la aplicación podrá ser un motor específico.
+
+- La anterior arquitectura híbrida proporciona resiliencia al distribuir las cargas de trabajo entre la infraestructura local y en la nube. 
+- La idempotencia se logra mediante el diseño adecuado de las API y la gestión de errores. 
+- La escalabilidad se logra escalando horizontalmente los servidores de API según sea necesario y utilizando servicios en la nube para proporcionar recursos adicionales cuando sea necesario.
+
+### Video explicación del proyecto
+
+[Video](https://drive.google.com/drive/folders/1SoEc4gZRFNVvvbf6qVWosE0CIhNpavXk?usp=sharing)
 
