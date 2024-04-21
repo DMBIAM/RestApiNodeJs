@@ -1,0 +1,130 @@
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: db-secret
+type: kubernetes.io/basic-auth
+data:
+  password: dGVzdF9iZA==
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mysql
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  labels:
+    app: db-nodejs
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-nodejs-kubernetes
+  labels: 
+    app: db-nodejs
+spec:
+  selector:
+    matchLabels:
+      app: db-nodejs
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: db-nodejs
+    spec:
+      containers:
+      - image: mysql:5.7
+        name: kubernetes-db-nodejs
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: password
+        ports:
+        - containerPort: 3306
+          name: db-nodejs
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-nodejs-service
+  namespace: mysql
+spec:
+  selector:
+    app: db-nodejs
+    version: "5.7"
+  ports:
+  - protocol: TCP
+    port: 3306
+    targetPort: 3306
+
+---
+apiVersion: v1
+data:
+  "3306": mysql/mysql-service:3306
+kind: ConfigMap
+metadata:
+  name: tcp-services
+  namespace: mysql
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/server-alias: mysql.localhost
+  labels:
+    app: mysql
+  name: mysql
+  namespace: mysql
+spec:
+  rules:
+  - host: mysql.localhost
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: db-nodejs-service
+            port:
+              number: 3306

@@ -129,7 +129,7 @@ async function UsersRouter(fastify) {
     fastify.get('/api/v1/events/searchNearest', { 
         preValidation: [fastify.jwtauthenticate],
         schema: {
-            description: "Buscar el evento más cercano dada una coordenada.",
+            description: "Buscar el evento más cercano dada una coordenada, utilizando funciones de MYSQL.",
             tags: ['Events'],
             summary: 'Buscar el evento más cercano',
             security: [{ "bearerAuth": [] }],
