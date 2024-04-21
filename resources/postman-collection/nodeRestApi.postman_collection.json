@@ -1,0 +1,2106 @@
+{
+	"info": {
+		"_postman_id": "adeec286-060e-4078-9fff-1005a83983a6",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4852638"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "usersGetAll",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/users/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"getAll"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "usersGetAll",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/users/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"getAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "1590"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 14:52:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Users retrieved\",\n    \"users\": {\n        \"status\": 200,\n        \"message\": \"Users retrieved successfully\",\n        \"data\": [\n            {\n                \"id\": 1,\n                \"name\": \"david\",\n                \"email\": \"test@example.com\",\n                \"created_at\": \"2024-04-19T02:46:29.000Z\",\n                \"updated_at\": \"2024-04-19T02:46:29.000Z\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"deivis\",\n                \"email\": \"devis@example.com\",\n                \"created_at\": \"2024-04-19T02:59:11.000Z\",\n                \"updated_at\": \"2024-04-19T02:59:11.000Z\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"dwivis\",\n                \"email\": \"dwvis@example.com\",\n                \"created_at\": \"2024-04-19T03:02:03.000Z\",\n                \"updated_at\": \"2024-04-19T03:02:03.000Z\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"dw2ivis\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T03:09:30.000Z\",\n                \"updated_at\": \"2024-04-19T03:09:30.000Z\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"dw2ivis\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T03:10:48.000Z\",\n                \"updated_at\": \"2024-04-19T03:10:48.000Z\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"dw2ivis\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T03:14:24.000Z\",\n                \"updated_at\": \"2024-04-19T03:14:24.000Z\"\n            },\n            {\n                \"id\": 7,\n                \"name\": \"dw2ivis\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T03:15:30.000Z\",\n                \"updated_at\": \"2024-04-19T03:15:30.000Z\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"dw2ivis\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T03:15:47.000Z\",\n                \"updated_at\": \"2024-04-19T03:15:47.000Z\"\n            },\n            {\n                \"id\": 9,\n                \"name\": \"dw2ivis\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T03:16:57.000Z\",\n                \"updated_at\": \"2024-04-19T03:16:57.000Z\"\n            },\n            {\n                \"id\": 10,\n                \"name\": \"davidmartinez\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T13:55:01.000Z\",\n                \"updated_at\": \"2024-04-19T13:55:01.000Z\"\n            },\n            {\n                \"id\": 11,\n                \"name\": \"davidmartinezb\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T14:46:28.000Z\",\n                \"updated_at\": \"2024-04-19T14:46:28.000Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "userGetOne",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/users/getOne/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"getOne",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "usersGetAll",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/users/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"getAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "1590"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 14:52:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Users retrieved\",\n    \"users\": {\n        \"status\": 200,\n        \"message\": \"Users retrieved successfully\",\n        \"data\": [\n            {\n                \"id\": 1,\n                \"name\": \"david\",\n                \"email\": \"test@example.com\",\n                \"created_at\": \"2024-04-19T02:46:29.000Z\",\n                \"updated_at\": \"2024-04-19T02:46:29.000Z\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"deivis\",\n                \"email\": \"devis@example.com\",\n                \"created_at\": \"2024-04-19T02:59:11.000Z\",\n                \"updated_at\": \"2024-04-19T02:59:11.000Z\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"dwivis\",\n                \"email\": \"dwvis@example.com\",\n                \"created_at\": \"2024-04-19T03:02:03.000Z\",\n                \"updated_at\": \"2024-04-19T03:02:03.000Z\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"dw2ivis\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T03:09:30.000Z\",\n                \"updated_at\": \"2024-04-19T03:09:30.000Z\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"dw2ivis\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T03:10:48.000Z\",\n                \"updated_at\": \"2024-04-19T03:10:48.000Z\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"dw2ivis\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T03:14:24.000Z\",\n                \"updated_at\": \"2024-04-19T03:14:24.000Z\"\n            },\n            {\n                \"id\": 7,\n                \"name\": \"dw2ivis\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T03:15:30.000Z\",\n                \"updated_at\": \"2024-04-19T03:15:30.000Z\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"dw2ivis\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T03:15:47.000Z\",\n                \"updated_at\": \"2024-04-19T03:15:47.000Z\"\n            },\n            {\n                \"id\": 9,\n                \"name\": \"dw2ivis\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T03:16:57.000Z\",\n                \"updated_at\": \"2024-04-19T03:16:57.000Z\"\n            },\n            {\n                \"id\": 10,\n                \"name\": \"davidmartinez\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T13:55:01.000Z\",\n                \"updated_at\": \"2024-04-19T13:55:01.000Z\"\n            },\n            {\n                \"id\": 11,\n                \"name\": \"davidmartinezb\",\n                \"email\": \"dw2vis@example.com\",\n                \"created_at\": \"2024-04-19T14:46:28.000Z\",\n                \"updated_at\": \"2024-04-19T14:46:28.000Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "CreateUsers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"davidmartinezbolivar22\",\r\n    \"email\" : \"dw2vdis@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CreateUsers",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"dw2ivis\",\r\n    \"email\" : \"dw2vis@example.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "151"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 03:16:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"New user created\",\n    \"newUser\": {\n        \"status\": 201,\n        \"message\": \"User created successfully\",\n        \"data\": {\n            \"id\": 9,\n            \"name\": \"dw2ivis\",\n            \"email\": \"dw2vis@example.com\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id\": 2,\r\n    \"name\": \"deivis\",\r\n    \"email\": \"devis@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "updateUser",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\" : 1,\r\n    \"name\" : \"David Martinez\",\r\n    \"email\" : \"david2@example.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "275"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 17:03:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"User updated successfully\",\n    \"userData\": {\n        \"status\": 200,\n        \"message\": \"User updated successfully\",\n        \"data\": {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 0,\n            \"serverStatus\": 2,\n            \"warningCount\": 0,\n            \"message\": \"(Rows matched: 1  Changed: 0  Warnings: 0\",\n            \"protocol41\": true,\n            \"changedRows\": 0\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "eventsGetAll",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/events/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"getAll"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "eventsGetAll",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/events/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"events",
+										"getAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "1552"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Apr 2024 01:01:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Event retrieved\",\n    \"events\": {\n        \"status\": 200,\n        \"message\": \"Events retrieved successfully\",\n        \"data\": [\n            {\n                \"id\": 1,\n                \"name\": \"Juegos Olimpicos\",\n                \"id_city\": 1,\n                \"created_at\": \"2024-04-19T21:00:32.000Z\",\n                \"updated_at\": \"2024-04-20T00:43:14.000Z\",\n                \"location\": {\n                    \"x\": 10.5537,\n                    \"y\": -74.4803\n                },\n                \"location_name\": \"Estadio Roberto Martinez\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Mundial de Futbol\",\n                \"id_city\": 2,\n                \"created_at\": \"2024-04-19T21:01:04.000Z\",\n                \"updated_at\": \"2024-04-20T00:43:14.000Z\",\n                \"location\": {\n                    \"x\": 4.6804,\n                    \"y\": -74.1465\n                },\n                \"location_name\": \"Alcaldia de Bogota\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Mundial Ciclismo\",\n                \"id_city\": 2,\n                \"created_at\": \"2024-04-19T21:01:04.000Z\",\n                \"updated_at\": \"2024-04-20T00:43:14.000Z\",\n                \"location\": {\n                    \"x\": 4.3845,\n                    \"y\": -74.0439\n                },\n                \"location_name\": \"Estadio Nemesio Camacho El Campin de Bogota \"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Mundial Natacion\",\n                \"id_city\": 1,\n                \"created_at\": \"2024-04-19T21:09:19.000Z\",\n                \"updated_at\": \"2024-04-20T00:43:14.000Z\",\n                \"location\": {\n                    \"x\": 10.5938,\n                    \"y\": -74.2825\n                },\n                \"location_name\": \"Estadio Metropolitano\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Mundial Ciclismo\",\n                \"id_city\": 3,\n                \"created_at\": \"2024-04-19T21:10:41.000Z\",\n                \"updated_at\": \"2024-04-20T00:43:14.000Z\",\n                \"location\": {\n                    \"x\": 3.2548,\n                    \"y\": -76.3228\n                },\n                \"location_name\": \"Estadio Pascual Guerrero\"\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Evento de prueba\",\n                \"id_city\": 1,\n                \"created_at\": \"2024-04-20T00:27:12.000Z\",\n                \"updated_at\": \"2024-04-20T00:43:14.000Z\",\n                \"location\": {\n                    \"x\": 10.9408,\n                    \"y\": -74.78618\n                },\n                \"location_name\": \"Estadio de prueba\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Mundial de Yoga\",\n                \"id_city\": 1,\n                \"created_at\": \"2024-04-20T01:01:01.000Z\",\n                \"updated_at\": \"2024-04-20T01:01:01.000Z\",\n                \"location\": {\n                    \"x\": 11.0082962,\n                    \"y\": -74.8347905\n                },\n                \"location_name\": \"Hotel Movich\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "eventGetOne",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/events/getOne/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"getOne",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "eventGetOne",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/events/getOne/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"events",
+										"getOne",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "227"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 21:18:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Event retrieved\",\n    \"eventData\": {\n        \"status\": 200,\n        \"message\": \"Event retrieved successfully\",\n        \"data\": {\n            \"id\": 1,\n            \"name\": \"Juegos Olimpicos\",\n            \"id_city\": 1,\n            \"created_at\": \"2024-04-19T21:00:32.000Z\",\n            \"updated_at\": \"2024-04-19T21:00:32.000Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "searchNearesEvent",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/events/searchNearest?latitude=11.0082962&longitude=-74.8347905&limit=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"searchNearest"
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "11.0082962"
+								},
+								{
+									"key": "longitude",
+									"value": "-74.8347905"
+								},
+								{
+									"key": "limit",
+									"value": "2",
+									"description": "es opcional, si no se envia por defecto se asigna 1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "searchNearestEvent",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/events/searchNearest?latitude=11.0082962&longitude=-74.8347905&limit=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"events",
+										"searchNearest"
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "11.0082962"
+										},
+										{
+											"key": "longitude",
+											"value": "-74.8347905"
+										},
+										{
+											"key": "limit",
+											"value": "2",
+											"description": "es opcional, si no se envia por defecto se asigna 1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "369"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Apr 2024 02:03:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Nearest event retrieved\",\n    \"nearestEvent\": {\n        \"status\": 200,\n        \"message\": \"Nearest event retrieved successfully\",\n        \"data\": [\n            {\n                \"id\": 8,\n                \"name\": \"Mundial de Yoga\",\n                \"city_name\": \"Barranquilla\",\n                \"location\": {\n                    \"x\": 11.0082962,\n                    \"y\": -74.8347905\n                },\n                \"distance\": 0\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Evento de prueba\",\n                \"city_name\": \"Barranquilla\",\n                \"location\": {\n                    \"x\": 10.9408,\n                    \"y\": -74.78618\n                },\n                \"distance\": 5751.822571224492\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "CreateEvents",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Mundial de Yoga\",\r\n  \"city\": 1,\r\n  \"location_name\": \"Hotel Movich\",\r\n  \"location\": {\r\n    \"latitude\": 11.0082962,\r\n    \"longitude\": -74.8347905\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"events"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CreateUsers",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Mundial Natacion\",\r\n    \"city\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/events",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"events"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "143"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 21:09:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"New event created\",\n    \"newEvent\": {\n        \"status\": 201,\n        \"message\": \"Event created successfully\",\n        \"data\": {\n            \"id\": 5,\n            \"name\": \"Mundial Natacion\",\n            \"city\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "updateEvent",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\" : 8,\r\n  \"name\": \"Mundial de Yoga\",\r\n  \"city\": 1,\r\n  \"location_name\": \"Hotel Movich Baranquilla\",\r\n  \"location\": {\r\n    \"latitude\": 11.0082962,\r\n    \"longitude\": -74.8347905\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"events"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "updateEvent",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\" : 8,\r\n  \"name\": \"Mundial de Yoga\",\r\n  \"city\": 1,\r\n  \"location_name\": \"Hotel Movich Baranquilla\",\r\n  \"location\": {\r\n    \"latitude\": 11.0082962,\r\n    \"longitude\": -74.8347905\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/events",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"events"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "278"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Apr 2024 01:11:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Event updated successfully\",\n    \"eventData\": {\n        \"status\": 200,\n        \"message\": \"Event updated successfully\",\n        \"data\": {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 0,\n            \"serverStatus\": 2,\n            \"warningCount\": 0,\n            \"message\": \"(Rows matched: 1  Changed: 1  Warnings: 0\",\n            \"protocol41\": true,\n            \"changedRows\": 1\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteEvent",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"events"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteUser",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\" : 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/events",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"events"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "237"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 21:14:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Event deleted successfully\",\n    \"eventData\": {\n        \"status\": 200,\n        \"message\": \"Event deleted successfully\",\n        \"data\": {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 0,\n            \"serverStatus\": 2,\n            \"warningCount\": 0,\n            \"message\": \"\",\n            \"protocol41\": true,\n            \"changedRows\": 0\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "attendancePerDay",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id_event\": 4,\r\n        \"date\": \"2024-04-20\"\r\n    },\r\n    {\r\n        \"id_event\": 2,\r\n        \"date\": \"2024-04-19\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/events/attendancePerDay",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"attendancePerDay"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "attendancePerDay",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"id_event\": 4,\r\n        \"date\": \"2024-04-20\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/events/attendancePerDay",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"events",
+										"attendancePerDay"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "173"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Apr 2024 14:18:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Attendance per day calculated\",\n    \"attendancePerDay\": [\n        {\n            \"date\": \"2024-04-20\",\n            \"day_of_week\": \"Saturday\",\n            \"attendance_count\": 5,\n            \"event_id\": 4,\n            \"event_name\": \"Mundial Natacion\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "attendancePerDayMultiple",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"id_event\": 4,\r\n        \"date\": \"2024-04-20\"\r\n    },\r\n    {\r\n        \"id_event\": 2,\r\n        \"date\": \"2024-04-19\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/events/attendancePerDay",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"events",
+										"attendancePerDay"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "285"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Apr 2024 14:40:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Attendance per day calculated\",\n    \"attendancePerDay\": [\n        {\n            \"date\": \"2024-04-20\",\n            \"day_of_week\": \"Saturday\",\n            \"attendance_count\": 5,\n            \"event_id\": 4,\n            \"event_name\": \"Mundial Natacion\"\n        },\n        {\n            \"date\": \"2024-04-19\",\n            \"day_of_week\": \"Friday\",\n            \"attendance_count\": 2,\n            \"event_id\": 2,\n            \"event_name\": \"Mundial de Futbol\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "addEventsUploadExcel",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/david/Desktop/test_api_db.xlsx"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/events/uploadExcel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"uploadExcel"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "addEventsUploadExcel",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/C:/Users/david/Desktop/test_api_db.xlsx"
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/events/uploadExcel",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"events",
+										"uploadExcel"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "30931"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Apr 2024 23:03:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Excel file uploaded and processed successfully\",\n    \"result\": \"PK\\u0003\\u0004\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000\\u0012\\u0018\\ufffd\\ufffdd\\u0001\\u0000\\u0000\\u0018\\u0005\\u0000\\u0000\\u0013\\u0000\\b\\u0002[Content_Types].xml \\ufffd\\u0004\\u0002(\\ufffd\\u0000\\u0002\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000Ĕ\\ufffdn\\ufffd0\\f\\ufffd\\ufffd\\ufffd\\u000eU\\ufffdS\\u001b\\ufffd0M\\u0013\\ufffd\\ufffd\\ufffd\\u001c7\\ufffd\\ufffd\\u0007\\ufffd\\u001aC#\\ufffd$\\ufffd\\r\\ufffd\\ufffd\\ufffd\\u001b`\\ufffd\\ufffd\\u000e\\ufffd@ڥQ\\u001b\\ufffd\\ufffd~qc\\u000f\\ufffd\\ufffd\\ufffdf+\\ufffdh\\ufffd+E\\ufffd\\ufffd\\f\\\\\\ufffdq\\ufffdR\\ufffdO\\ufffd\\ufffd;\\ufffd!)\\ufffd\\ufffd\\ufffd\\u000eJ\\ufffd\\u0001\\u0014\\ufffd\\ufffd\\ufffd\\ufffdp\\ufffd\\t\\ufffd\\u0019g;,EM\\u0014\\ufffdĪ\\ufffdFa\\ufffd\\u00038ޙ\\ufffd\\ufffd(\\ufffd\\ufffd8\\ufffdAU\\u000b5\\u00079\\ufffd\\ufffdne\\ufffd\\u001d\\ufffd\\ufffd\\ufffdZ\\r1\\u001a>\\ufffdL--eOk\\ufffd\\ufffd%\\ufffd`Qd\\u000f\\ufffd\\ufffd֫\\u0014*\\u0004k*EL*WN\\ufffdr\\ufffdw\\u000e\\u0005g\\ufffd\\u0018\\ufffdM\\ufffd\\u001b\\ufffd\\u0010\\ufffdӡ\\ufffd\\ufffd\\ufffd`\\ufffd\\ufffdʥ\\ufffdFC6Q\\ufffd^T\\ufffd\\u0018rm姏\\ufffd\\u000f\\ufffd\\u0017\\ufffda\\ufffd\\u000eJ?\\ufffd\\ufffd\\n\\ufffd\\ufffd\\ufffd\\rW\\ufffd\\ufffd\\u0010Ai\\ufffd\\u0001\\ufffd\\ufffdEZ\\ufffdF\\u0019\\ufffd\\ufffd>\\ufffd\\ufffd\\ufffdQ\\ufffd\\ufffd\\u007fa\\ufffd\\ufffd|I\\ufffdD\\ufffd\\ufffd?q\\u0010\\ufffd;\\ufffd\\ufffdy~)\\ufffd̑\\ufffd#m,\\ufffd\\u007f\\u007f\\u0012=\\ufffd\\\\\\ufffd\\b\\ufffd\\ufffd\\\"w\\ufffd\\ufffd\\u0001~j\\u001f\\ufffd\\ufffd\\ufffd;\\ufffd> wr\\ufffdӫ\\ufffdo\\ufffd6;\\u000f,\\u0004\\ufffd\\f|7kץ\\ufffdv\\ufffd)pv١\\ufffd3\\u001at\\ufffd\\ufffdLsm\\ufffd\\u0005\\u0000\\u0000\\ufffd\\ufffd\\u0003\\u0000PK\\u0003\\u0004\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000\\ufffdU0#\\ufffd\\u0000\\u0000\\u0000L\\u0002\\u0000\\u0000\\u000b\\u0000\\b\\u0002_rels/.rels \\ufffd\\u0004\\u0002(\\ufffd\\u0000\\u0002\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\ufffd\\ufffdMO\\ufffd0\\f\\ufffd\\ufffdH\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdݐ\\u0010BKwAH\\ufffd!T~\\ufffdI\\ufffd\\u000f\\ufffd\\ufffd\\ufffd$\\u001bݿ'\\u001c\\u0010T\\u001a\\ufffd\\u0003G\\u007f\\ufffd~\\ufffd\\ufffd\\ufffd\\ufffd<\\ufffd\\ufffd\\ufffd!\\ufffd\\ufffd4\\ufffd\\ufffd\\u0012\\u0014;#\\ufffdw\\ufffd\\ufffd\\ufffd\\ufffdqu\\u0007*&r\\ufffdFq\\ufffd\\ufffd\\ufffd\\u0011v\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdGJy(v\\ufffd\\ufffd*\\ufffd\\ufffd\\ufffd\\ufffdK\\ufffd\\ufffd#F\\ufffd\\ufffdD\\ufffd\\u0010\\ufffd.W\\u001a\\t\\u0013\\ufffd\\u001c\\ufffd\\u0016=\\ufffd\\ufffdZ\\ufffdMY\\ufffdb\\ufffd\\ufffd\\u0001\\ufffdBS\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd7\\ufffd\\ufffdϛ\\u007fז\\ufffd\\ufffd\\r?\\ufffd9L\\ufffdҙ\\u0015\\ufffdsbgٮ|\\ufffdl!\\ufffd\\ufffd\\u001aUSh9i\\ufffdb\\ufffdr:\\\"y_dl\\ufffd\\ufffdD\\ufffd\\ufffd\\u0013\\ufffd|-N\\ufffd\\ufffdR\\\"4\\u0012\\ufffd2\\ufffdG\\ufffd%\\ufffd\\ufffd\\u007fZ\\ufffd4\\ufffd˝y\\ufffd7\\të\\ufffd\\ufffdɂ\\ufffd\\u001f\\ufffd\\ufffd\\u0001\\u0000\\u0000\\ufffd\\ufffd\\u0003\\u0000PK\\u0003\\u0004\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000!0R\\u0019t\\u0003\\u0000\\u0000\\ufffd\\b\\u0000\\u0000\\u000f\\u0000\\u0000\\u0000xl/workbook.xml\\ufffdUmo\\ufffd<\\u0014\\ufffd\\ufffdH\\ufffd\\u000f\\ufffd\\ufffd\\u0014\\ufffd\\u0000\\u0001\\ufffdd\\ufffd%\\ufffd\\ufffdNU\\ufffd\\ufffd_*U.8\\ufffd\\n`fL\\ufffd\\ufffd\\ufffd\\u007f\\ufffd5\\ufffd\\ufffd%Ӕu\\ufffd\\u0012\\u001b\\ufffd7\\ufffd\\ufffd\\ufffd\\ufffdkN?o\\ufffdR{\\ufffd\\ufffde\\ufffd\\ufffd\\ufffd\\ufffd\\u0004\\ufffd\\u001a\\ufffd3\\ufffd\\ufffd\\ufffda\\ufffd\\u007f[\\ufffd\\ufffd\\ufffdk\\ufffd$uNJ^ә\\ufffdD[\\ufffd\\ufffd\\ufffd\\ufffd\\u007f\\ufffd\\u001b.\\ufffd\\ufffd\\ufffd\\ufffd5\\u0000\\ufffdۙ^H\\ufffd\\u0004\\ufffd\\ufffdf\\u0005\\ufffdH{\\ufffd\\u001bZ\\ufffdʊ\\ufffd\\ufffdH\\u0018\\ufffd\\u0007\\ufffdm\\u0004%y[P*\\ufffdҴ\\u0010r͊\\ufffdZ\\u001f\\u0010\\u0002q\\f\\u0006_\\ufffdXF\\u0013\\ufffdu\\u0015\\ufffd\\ufffd\\u0000\\\"hI$\\ufffdo\\u000bִ#Z\\ufffd\\u001d\\u0003W\\u0011\\ufffd\\ufffd\\u001a#\\ufffdU\\u0003\\u0010\\ufffd\\ufffdd\\ufffd\\u0007յ*\\u000b\\ufffd\\u001ej.\\ufffd}\\t\\ufffd\\ufffd\\ufffdѶ\\u0002\\ufffd.\\ufffd0\\ufffd\\ufffd\\u001aw\\ufffd\\ufffd\\ufffd\\ufffd*\\ufffd\\t\\ufffd\\ufffd<\\u0001hs }\\ufffd\\u001f#\\u0013\\ufffd7G\\ufffd=<\\ufffd\\ufffdlS\\ufffdG\\ufffdr\\ufffdg%\\ufffd\\u000f\\ufffdr\\ufffdX\\ufffd\\u000b\\u0018F\\u007f\\ufffd\\ufffd\\ufffdZ\\ufffdW\\u00028\\ufffd\\u000f\\ufffd9{n\\ufffd>?]\\ufffd\\ufffd^\\u000f\\ufffd\\ufffdH\\ufffd|!\\ufffd\\ufffdT\\ufffdk%i\\ufffd\\\"g\\ufffd\\ufffd3}\\nC\\ufffd\\ufffdo&D\\ufffdD\\u001d+a՚ږ\\ufffd\\ufffd\\ufffd/\\ufffd\\ufffd\\ufffd\\u0015\\ufffdJ\\ufffd\\u0004#\\ufffd\\ufffdP\\u0019\\ufffd\\ufffd\\u000f\\ufffd`\\ufffd\\ufffd\\ufffdT\\ufffdDҘ\\ufffd\\u0012|\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\u0002v\\\\pp\\ufffdvE\\ufffdwLP(,\\ufffd\\u0017h\\ufffd\\ufffdd\\u0001\\ufffdo/\\ufffd,\\ufffdN\\ufffd3=\\u000en\\ufffd\\ufffd \\ufffd6'\\ufffd,\\ufffdMh\\ufffd\\ufffd\\ufffd\\ufffd}\\ufffdKrX\\u0004\\u007f\\ufffdL\\ufffd\\ufffd\\ufffd1\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdځ\\ufffd\\bF\\ufffd]J\\ufffd\\ufffd\\ufffdYr\\u000e\\u0019\\ufffdJ\\u001e!\\u001f\\ufffd\\ufffd|W\\ufffdgp\\ufffdxrWg\\\"\\ufffdw\\ufffdId;I\\ufffdE\\ufffdk\\ufffd\\ufffda\\ufffd\\ufffd\\ufffd\\b\\ufffd\\ufffdcX\\ufffd\\ufffd\\ufffd\\u0017\\ufffd1\\ufffd\\ufffd\\u001f F\\ufffdA\\ufffdI'\\ufffd]\\ufffd\\u0015\\ufffdL\\ufffd!\\ufffd\\u0007K\\u0017d;\\ufffd`\\u0014t,\\u007f\\ufffd\\ufffdv\\u001fC\\ufffd\\ufffdq\\ufffd\\u0012\\ufffd.\\ufffdkF7\\ufffd)\\ufffdP\\ufffdް:\\ufffd\\u001b\\ufffd\\ufffd\\ufffdz\\ufffd\\ufffdi\\u001c\\u001b\\u0602\\ufffd_\\ufffda\\ufffd, \\u0004M'\\ufffd\\ufffd\\ufffd){(\\ufffd2\\ufffd\\ufffdV5 ,Em\\ufffd?{\\ufffd5I\\u0012\\u0014\\u001a\\u0016\\ufffd\\u001d\\ufffd\\u000e\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd7,\\ufffdB{aO!\\u001cN@\\ufffd\\ufffd\\u0015\\ufffd\\ufffd\\ufffd\\u0004n}\\ufffdս\\ufffds\\\"\\t\\ufffd{Z]\\ufffd\\ufffd!\\ufffd\\b\\ufffd\\u0016\\ufffd,\\ufffd\\n\\ufffd}0\\\\^\\ufffd`x\\ufffd\\u0007[\\ufffdn\\ufffd\\u0016\\u0019)3\\ufffd\\u0007\\ufffd\\ufffd\\ufffd>F\\ufffd\\ufffd\\\"\\ufffdV\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\f\\ufffd`\\u001b\\ufffdS\\ufffd\\ufffd\\u0006ZL@\\ufffd\\ufffd[ eb\\u0019\\ufffd\\ufffdX\\u000bg\\ufffdH\\u0016Q\\ufffdL\\ufffd\\ufffd\\b\\ufffdō\\ufffdWD0\\ufffd\\ufffd\\u0014˂\\b\\ufffd\\u0014$[ë늮\\\"҂\\ufffdz\\ufffd&\\ufffd}M6r\\ufffd\\bM\\ufffd\\ufffd\\ufffd\\ufffd԰\\ufffd\\ufffd\\ufffd(rm\\ufffdI҉3\\ufffdI\\ufffdpR弁\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd}\\ufffd\\ufffd\\ufffd)\\ufffd\\u001dԲ*\\ufffd~\\u001c\\ufffd6\\ufffd\\ufffd\\ufffd'W\\ufffd\\ufffd.\\ufffdo\\n5\\ufffdJԹ\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdG\\u0006\\ufffd\\ufffdG\\u0006\\ufffd_.\\ufffd\\u0017Gƞ/\\ufffdw7io\\ufffd_\\ufffd\\u001d\\ufffd\\ufffd\\ufffd\\ufffdC\\ufffd\\ufffd\\ufffdO\\u0000\\u0000\\u0000\\ufffd\\ufffd\\u0003\\u0000PK\\u0003\\u0004\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000J\\ufffd\\ufffda\\ufffd\\u0000\\u0000\\u0000G\\u0003\\u0000\\u0000\\u001a\\u0000\\b\\u0001xl/_rels/workbook.xml.rels \\ufffd\\u0004\\u0001(\\ufffd\\u0000\\u0001\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\ufffd\\ufffd\\ufffdj\\ufffd0\\f\\ufffd\\ufffdѽq\\ufffd\\ufffdP\\ufffd:{)\\ufffd\\ufffd\\ufffd\\ufffd\\u00070\\ufffd\\u0012\\ufffdMlc\\ufffd?y\\ufffd\\ufffd\\ufffd\\ufffd6\\ufffd\\ufffd\\ufffdУ$4\\ufffd1\\ufffdf\\ufffd9\\ufffd\\ufffd\\u001d#u\\ufffd)(\\ufffd\\u001c\\u0004\\ufffdڛε\\n^\\ufffdOW\\ufffd \\ufffd\\ufffd3\\ufffd\\ufffd\\u000e\\u0015\\ufffdH\\ufffd\\ufffd./6\\ufffd\\ufffdkNOd\\ufffd@\\\"\\ufffd8R`\\ufffdÃ\\ufffdT[\\u001c4e>\\ufffdK\\ufffd\\ufffd\\ufffdAs\\u001ac+\\ufffd\\ufffd\\u000f\\ufffdEY\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd5\\ufffd\\ufffdi\\ufffd\\ufffdQ\\u0010w\\ufffd\\u001a\\ufffd~\\f\\ufffd\\ufffdom\\ufffd4]\\ufffd\\ufffd\\ufffd~\\u001b\\ufffd\\ufffd\\u0019\\u000bɉ\\u000b\\ufffd\\ufffd\\ufffd-\\ufffd\\ufffdi\\ufffd^\\u0016Y\\u0002\\u0005y\\ufffd\\ufffd\\\\\\ufffd\\ufffd\\ufffd\\ufffd\\u0003YD>q\\u001cW$\\ufffdK\\ufffd\\u0004S\\ufffd3\\ufffdb2\\ufffdk\\u0090\\ufffd\\u0011\\ufffd\\u000b\\ufffdT>:\\ufffd3[/%s\\ufffd*\\f\\ufffd}\\ufffd\\ufffd\\ufffd+4\\ufffd?\\ufffdrV\\ufffd\\ufffd\\u000b\\u0000\\u0000\\ufffd\\ufffd\\u0003\\u0000PK\\u0003\\u0004\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000օ_j\\ufffd\\u0002\\u0000\\u0000{\\u0005\\u0000\\u0000\\u0018\\u0000\\u0000\\u0000xl/worksheets/sheet1.xml\\ufffd\\ufffdMo\\ufffd0\\u0010\\ufffd\\ufffd+\\ufffd\\u007f@\\ufffd\\ufffdqB\\ufffd\\u0004\\ufffdTi(\\ufffd\\ufffdV\\ufffd}5f\\bVl\\ufffd\\ufffdΗV\\ufffd\\ufffd;\\u0010%\\ufffd\\ufffdKT\\t\\ufffd\\ufffd`?\\ufffd\\ufffd\\ufffde\\ufffdx\\ufffd*\\u0603uҴ\\u0019aQL\\u0002h\\ufffd\\ufffdd\\ufffd\\ufffd\\ufffd\\ufffd\\u001fE8#\\ufffd󼭸2-d\\ufffd\\u0004\\ufffd<.?\\u007fZ\\u001c\\ufffdݺ\\u0006\\ufffd\\u0007Hh]F\\u001aﻔR'\\u001a\\ufffd\\ufffdE\\ufffd\\ufffd\\u0016\\ufffd\\ufffd\\ufffdj\\ufffdqi7\\ufffdu\\u0016x5\\u001cҊ\\ufffd\\ufffdxJ5\\ufffd-9\\u0013R{\\u000f\\ufffdԵ\\u0014\\ufffd\\u001b\\ufffd\\ufffd\\ufffd\\ufffd3Ă\\ufffd\\u001e\\ufffdw\\ufffd\\ufffd܅\\ufffd\\ufffd=8\\ufffd\\ufffdvׅ\\ufffd\\ufffd\\u000e\\u0011\\ufffdTҟ\\u0006(\\t\\ufffdH_6\\ufffd\\ufffd\\ufffdT\\ufffd\\ufffd\\ufffd%\\\\\\u0004G\\ufffd\\ufffd\\b\\ufffd\\ufffdEf\\ufffd\\ufffd(i)\\ufffdq\\ufffd\\ufffd\\u0011\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdtN\\ufffd\\ufffd\\ufffdn\\ufffd\\ufffd\\u000b\\ufffd\\u0012ja/\\ufffd\\u000b|C\\ufffd>V\\u0012\\ufffd\\\\Y\\ufffd7\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\u0015֏˦;Ye\\ufffd_\\ufffdf\\ufffd\\ufffd\\ufffda\\u0015>\\ufffd\\ufffd9L\\ufffdq\\u001e\\ufffd&\\u0018\\ufffd\\ufffd,/\\ufffd,_=\\ufffd\\ufffd+Y.*\\ufffd7\\ufffdw\\u0015X\\ufffd3\\ufffdb\\ufffdSB\\ufffdr1\\ufffd痄\\ufffd{\\u0017\\u0007\\ufffd\\ufffd\\ufffdA\\ufffd\\ufffd\\ufffd\\u001a\\ufffd\\u0004\\ufffd=Kc\\ufffd\\ufffd\\ufffd\\u0017L\\ufffdHtÆ\\ufffdȅ\\ufffd{X\\ufffdR\\bN\\ufffd\\ufffd\\u007f\\ufffd\\u001aI\\ufffd\\ufffd\\ufffdټ\\ufffd\\ufffdW\\ufffd\\ufffd\\ufffdE\\ufffd\\u0018l\\ufffd\\ufffd\\u0006%w\\ufffd6귬|\\ufffd\\ufffd\\ufffd\\ufffdTP\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\u000b\\ufffdM\\ufffd1\\ufffdD\\u0013\\u001c@:\\ufffd\\ufffd\\u0004Z\\u0017K\\ufffd\\ufffd\\u0013T\\ufffd\\u000f\\u0000\\u0000\\ufffd\\ufffd\\u0000\\u0000\\u0000\\ufffd\\ufffd\\ufffd\\ufffdQ\\n\\ufffd \\f\\u0006\\ufffdH\\u000e\\ufffdT\\ufffd^J*l\\ufffd\\\"\\ufffd=u\\ufffd\\ufffdn\\ufffd\\ufffd\\ufffd\\f\\ufffd\\u0015\\u0006뛚\\u001f\\ufffd\\u0018\\ufffd\\ufffd1\\ufffd\\ufffd'\\ufffdh\\ufffd=\\ufffdԃ\\u0006\\ufffdw?\\ufffd\\ufffd:\\u0003\\ufffd[\\u001f\\ufffd\\ufffd2D\\u000eqL=4\\u0007{\\u0004G!gO\\u0012\\ufffd#\\ufffd\\ufffd\\ufffd\\u001a\\ufffd\\ufffd\\u0011\\ufffdw\\ufffd\\ufffdYӵ\\ufffd\\ufffdTK\\ufffd\\ufffdߒp\\ufffd\\ufffd\\ufffd2\\ufffd\\ufffd\\u001f\\ufffdݣH\\ufffd*v\\ufffdآ\\ufffd\\ufffd\\ufffd[\\ufffd=J\\u000e\\ufffdQ\\ufffd\\f\\ufffd\\f\\u0004׏x\\u0001\\u0000\\u0000\\ufffd\\ufffd\\u0000\\u0000\\u0000\\ufffd\\ufffd\\ufffd)HLO\\ufffdM,J\\ufffd\\ufffd+V\\ufffdIM+\\ufffdU2\\ufffd3WR(\\ufffdLπ\\ufffdK\\ufffd\\u000b\\ufffd\\ufffd\\ufffdJ\\nI\\ufffd%%\\ufffd\\ufffd0^FjbJj\\u0011\\ufffdg\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd_\\u0002\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\u0017e\\u0017g\\ufffd\\ufffd\\ufffd\\ufffd\\u0001\\u0000\\u0000\\u0000\\ufffd\\ufffd\\u0003\\u0000PK\\u0003\\u0004\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000b.\\u0010\\ufffd\\u0013\\u0002\\u0000\\u0000\\ufffd\\u0003\\u0000\\u0000\\u0018\\u0000\\u0000\\u0000xl/worksheets/sheet2.xml\\ufffd\\ufffdK\\ufffd\\ufffd0\\u0010\\ufffd\\ufffd~\\u0007\\ufffd\\ufffd-\\ufffd\\ufffd\\ufffd&β8k\\ufffd\\ufffdR\\ufffd8+\\ufffd8\\u0016\\ufffdÕ\\ufffd\\u0017\\ufffd߽c\\ufffdd\\u0017r\\t\\u000b\\u0012\\ufffd\\u0019\\ufffd\\ufffd\\ufffdH\\u007f-\\ufffdNJ\\u0006\\u0007\\ufffdN\\u0018]\\ufffd$\\ufffdI\\u0000\\ufffd\\ufffdV\\ufffdmE~\\ufffdh\\ufffd\\u0005\\t\\ufffdg\\ufffde\\ufffdh\\ufffd\\ufffd\\u0019\\u001cyZ}\\ufffd\\ufffd<\\u001a\\ufffds=\\ufffd\\u000f\\ufffd\\ufffd]EzR\\ufffd{P\\ufffdEf\\u0000\\ufffd;\\ufffd\\ufffd\\ufffdyt햺\\ufffd\\u0002k\\ufffdCJ\\ufffd4\\ufffd\\ufffdT1\\ufffdɅP\\ufffdG\\u0018\\ufffd\\ufffd\\u0004\\ufffd\\ufffd\\ufffd{\\u0005\\ufffd_ \\u0016$\\ufffdX\\ufffd\\ufffd\\ufffd\\ufffd4\\ufffd\\u001f\\ufffd)fw\\ufffd!\\ufffdF\\r\\ufffd\\ufffd\\b)\\ufffdy\\ufffd\\ufffd@\\ufffd\\ufffdu\\ufffd\\ufffde\\u001b\\ufffd}\\ufffd\\ufffd\\ufffd\\ufffd\\ufffddq\\ufffd8\\ufffdk\\ufffd)~\\ufffdI\\tn\\ufffd3\\ufffd\\ufffd\\ufffdL/5߷_Ђ2~#\\ufffd\\ufffd\\ufffd\\u0010&ɩ\\ufffd\\ufffd\\u0018\\u001f\\ufffd\\r\\ufffd~\\ufffd\\ufffddvc\\ufffdo\\ufffd샰\\ufffd\\r6^\\ufffd-\\ufffd\\ufffd\\ufffd\\ufffdߗY\\ufffd5\\ufffd\\b\\ufffd\\ufffd\\\"̛\\ufffd\\b\\ufffd\\fݺ\\ufffd\\ufffd\\u0017_\\u0016u\\ufffd\\ufffd\\ufffd?\\ufffdZ\\ufffd\\u0002_x\\ufffd*\\ufffd\\ufffdU\\ufffd9!t\\ufffd\\ufffd\\ufffd\\ufffdK\\ufffdѽ\\ufffd\\ufffdQ\\ufffd\\u001bcv\\ufffd\\ufffd+\\ufffd\\ufffd\\u0003\\t|TE\\ufffdp9@\\rRVd\\ufffd\\ufffdP\\ufffd\\u007f&\\ufffdh#\\ufffdޘ\\ufffd\\ufffd+\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\u0006\\u001b\\ufffd6\\ufffdh}\\ufffd\\u001f\\u0005\\ufffdI\\u000b\\u001d\\ufffdK\\ufffd\\ufffd\\u001c\\ufffd\\ufffd\\ufffd\\ufffd\\u001e\\ufffdy\\ufffd\\ufffdI\\u0012e{^\\ufffd\\ufffdQ,'\\ufffd\\ufffdL\\ufffd\\u0001\\u0000\\u0000\\ufffd\\ufffd\\u0000\\u0000\\u0000\\ufffd\\ufffd\\ufffd)\\ufffdHM-qI,IԷ\\u0003\\u0000\\u0000\\u0000\\ufffd\\ufffd\\u0000\\u0000\\u0000\\ufffd\\ufffd\\ufffd)HLO\\ufffdM,J\\ufffd\\ufffd+V\\ufffdIM+\\ufffdU2\\ufffd3WR(\\ufffdLπ\\ufffdK\\ufffd\\u000b\\ufffd\\ufffd\\ufffdJ\\nI\\ufffd%%\\ufffd\\ufffd0^FjbJj\\u0011\\ufffdg\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd_\\u0002\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\u0017e\\u0017g\\ufffd\\ufffd\\ufffd\\ufffd\\u0001\\u0000\\u0000\\u0000\\ufffd\\ufffd\\u0003\\u0000PK\\u0003\\u0004\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000\\ufffdMl\\ufffdV\\u0007\\u0000\\u0000\\ufffd \\u0000\\u0000\\u0013\\u0000\\u0000\\u0000xl/theme/theme1.xml\\ufffdY[\\ufffd\\u001b5\\u0014~G\\ufffd?X\\ufffd\\ufffd6\\ufffd˪)ʵK\\ufffd\\ufffdVݴ\\ufffdGo\\ufffdd\\ufffd\\ufffd\\ufffd#\\ufffd\\ufffdm\\ufffd*\\ufffd\\ufffd\\ufffd\\u000b\\u0012\\u0012 ^\\ufffdx\\ufffd\\u0001!\\ufffd@\\u0002\\ufffd\\u008f\\ufffdԊˏ\\ufffd\\ufffd3\\ufffd\\ufffd\\u001b\\ufffd^\\ufffd\\\"@\\ufffd\\ufffdV\\u0019\\ufffd;\\ufffd\\ufffd\\ufffd\\u001c\\u007f>s|\\ufffd\\ufffd\\ufffd\\tC\\ufffdDH\\ufffd\\ufffdNP\\ufffdR\\t\\u0010I'|J\\ufffdy'\\ufffd7\\u001e\\ufffdZ\\u0001\\ufffd\\n\\ufffdS\\ufffdxJ:\\ufffd\\ufffd\\ufffd\\ufffdko\\ufffdq\\u0015縉$\\u0004\\ufffd|*\\ufffdp'\\ufffd\\ufffdZ\\ufffd\\ufffdr\\u0002\\ufffdX^\\ufffd\\u000b\\ufffd\\ufffdo3.\\u0012\\ufffd\\ufffdQ\\ufffd\\ufffdS\\ufffd\\ufffd@o\\ufffdʵJ\\ufffdQN0M\\u0003\\ufffd\\ufffd\\u0004ԎA\\u0006M\\t\\ufffd=\\ufffd\\ufffd\\t\\t\\ufffd\\ufffd\\ufffd\\u000f\\u0019̑*\\ufffd\\u0007&L\\u001ci\\ufffd$\\ufffd\\ufffd\\ufffdӓ\\ufffdFȕ\\ufffd3\\ufffdN1\\ufffd\\u00040Ӕ\\ufffd\\ufffd\\ufffdC\\u0015 \\ufffd\\ufffd\\ufffd\\u001f:A\\ufffd\\ufffd\\u0005\\ufffdkW\\ufffdx/\\u0017bj\\ufffd\\ufffd%72\\u007f\\ufffd\\\\.0=\\ufffd\\ufffd9\\ufffd\\ufffdx3i\\u0018Fa\\ufffd\\ufffd\\ufffdo\\u0000Lm\\ufffd\\ufffdac\\ufffd\\ufffd\\ufffd3\\u0000<\\ufffd\\ufffdJ3[\\\\\\ufffd\\ufffdZ?̱\\u0016(\\ufffd\\ufffd\\ufffd=h\\u000e\\ufffdU\\u0007o\\ufffdo\\ufffd܍\\ufffd\\ufffd\\ufffd\\u001bP\\ufffd?\\ufffd\\u008fF}\\ufffd7\\ufffd\\f\\u001fm\\ufffd^\\ufffd7p\\ufffd\\u001bP\\ufffdolᛕ\\ufffd l:\\ufffd\\r(f4=\\ufffdBW\\ufffdF\\ufffd\\ufffd^\\ufffd\\u00062\\ufffdl\\ufffd\\u000boG\\ufffdY˕\\u0017(ȆMv\\ufffd)f<U\\ufffdr-\\ufffd\\u000f\\ufffd\\u0018\\u0001@\\u0003\\u0019V4Ej\\ufffd 3<\\ufffd<\\ufffdcF\\ufffd\\u0005E\\u0007t\\u001eC\\ufffd-p\\ufffd%\\fWj\\ufffdQ\\ufffd\\u000e\\ufffd\\ufffd'4\\ufffdLD\\ufffd\\u001e\\ufffd\\ufffd\\ufffd\\ufffd\\u000b,\\ufffd[C\\ufffd\\u001e$'\\ufffd.T'\\ufffd\\u0001Z\\u0003\\u000b\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd<\\ufffd\\ufffd\\ufffd\\ufffd\\u001f\\ufffd|\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffds\\u001bU\\ufffd\\ufffd>N\\ufffd\\ufffd\\ufffd_}\\ufffd\\ufffd\\u0017\\ufffd߾\\ufffd\\ufffd\\ufffdO>ͦ>\\ufffd\\ufffd6\\ufffd\\ufffd7\\u001f>\\ufffd\\ufffd\\ufffd\\ufffdR\\u000f+.\\\\\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd?\\ufffd\\ufffd\\ufffdO<ڻ\\u0002\\u001f\\ufffd\\ufffd1M\\ufffdD\\ufffd\\ufffd\\u0019\\ufffd\\ufffd\\u0013X\\ufffd\\ufffd~r,^Nb\\u001cc\\ufffdH\\ufffd\\u0018t{T\\u000fU\\ufffd\\u0000o\\ufffd0\\ufffd\\ufffdz\\ufffdu\\ufffd}\\u0001,\\ufffd\\u0003^_>pl=\\ufffd\\ufffdRQ\\ufffd\\ufffd7\\ufffd\\ufffd\\u0001\\u001er\\ufffdz\\\\x\\u001dpS\\ufffdeyx\\ufffdL\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd7w\\u001f\\ufffdN\\ufffd\\ufffd\\ufffd\\u0005\\ufffd+\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd1\\ufffd\\u000eé\\ufffds\\ufffd\\u0012\\ufffd\\ufffdo\\ufffd\\ufffd\\u0010\\ufffd\\ufffdޥ\\ufffd\\ufffd\\ufffd!\\ufffd\\b.\\ufffdL\\ufffdw)\\ufffda\\ufffduɘ\\u001e;\\ufffdT\\b\\ufffd\\ufffd\\u0004\\ufffd\\ufffd\\u0019\\b\\ufffdv|sx\\u001f\\ufffd8\\ufffdz@N]$l\\u000b\\ufffd<Ə\\ts\\ufffdx\\u001d/\\u0015N|*\\ufffd8a\\ufffd\\ufffd\\u000f\\ufffd\\ufffd}F\\u001e\\ufffd\\ufffd\\ufffd\\ufffd\\r\\ufffd\\ufffdH\\ufffd\\t\\ufffdh8%R\\ufffddn\\u000bX\\ufffd\\u0015\\ufffd\\ufffd\\ufffd0\\ufffd\\ufffd\\u001f\\ufffdU\\ufffd\\\"\\ufffd\\ufffd'>\\ufffd\\u0007\\ufffds\\u001b9\\ufffd'\\ufffd\\u0018'\\u000b\\ufffd\\ufffd4\\ufffdm\\ufffd\\ufffd\\ufffd\\u0004R\\u0014\\ufffd;\\\\\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd!\\ufffd\\u0019\\ufffdӝ\\ufffdO\\ufffd\\u0013\\ufffd\\ufffd\\u0013\\ufffd= Wۤ\\\"A\\ufffd/K\\ufffd\\ufffdu\\ufffd\\ufffd\\ufffd\\ufffdb3L|,\\ufffd\\u0015\\ufffdî]A\\ufffd\\ufffd\\ufffd[Ν\\ufffd> \\ufffd\\ufffd3<%\\u0004\\ufffd{\\ufffdcA\\ufffd/\\u001c\\ufffd\\u0017F߈\\ufffdU\\ufffd\\ufffd/\\ufffdn`7W\\ufffdsJ$A\\ufffd\\ufffd٦\\ufffd\\u0003*\\ufffd\\ufffd=\\\"s\\ufffdÞ\\ufffd\\ufffd9\\ufffdY\\ufffd4\\ufffdb\\ufffd\\ufffd[\\u0010u'u\\ufffd\\ufffdR\\ufffdm69\\ufffd\\ufffd\\ufffd(\\u0014\\ufffd\\ufffd/^\\ufffdܖ\\ufffd\\ufffdJ\\ufffd\\ufffd.\\ufffdwb\\ufffd]\\ufffdY\\ufffd\\ufffdu%\\ufffd\\ufffd\\ufffd\\ufffd\\u001e\\ufffd}\\ufffd\\ufffde\\ufffd%Ȑ\\ufffd\\ufffd\\u0001b\\u007faߌ1s&(\\u0012f\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd-\\ufffd8\\ufffd/D\\ufffd\\ufffdjĖ^\\ufffd\\ufffd\\ufffdi\\ufffd0@a\\ufffd\\ufffd;\\tM\\ufffd[\\ufffd\\ufffd+{\\ufffd\\u007f\\ufffd\\ufffd\\ufffd\\u00170\\u0017P\\ufffd\\ufffd\\u0015\\ufffd\\ufffdRg\\u0017\\ufffd\\ufffd+pv\\ufffd\\ufffd\\ufffde\\ufffd\\u0000/\\ufffd;\\u0004N\\ufffdmκ\\ufffdj.\\ufffd\\ufffd\\ufffd\\u007f_\\ufffd\\ufffd\\ufffd˗\\ufffd\\ufffde-sY\\ufffd\\ufffd޾^K-S\\ufffd/P\\ufffd\\u0014]\\u001e\\ufffd\\ufffdIv\\ufffd|f\\ufffd\\ufffd#\\ufffdb\\ufffd@\\ufffd\\ufffd\\ufffd\\ufffd7\\ufffd\\ufffd\\b\\u0006M;\\ufffd\\ufffd$7-\\ufffdE\\f_\\ufffd\\u0006\\ufffd\\ufffd\\ufffd\\u000bld\\ufffd\\ufffd\\ufffd\\u001d\\ufffd\\ufffd\\u0018/\\ufffd5T5\\ufffdι\\ufffdU\\ufffd%Zp\\t\\u001d#3l\\ufffd\\ufffd\\ufffdn\\ufffdwZ&\\ufffd|\\ufffdu:\\ufffdU\\ufffd\\ufffd\\ufffd\\\\(\\ufffd*\\ufffd+\\ufffdf\\u001c\\ufffdT*C7\\ufffdE\\ufffdn\\ufffd\\ufffd\\ufffdC\\ufffd˺6@˾\\ufffd\\u0011\\ufffdd\\ufffd\\u0011u\\ufffd\\u0011\\ufffd\\ufffd Dᯌ0+\\ufffd\\u0010+\\ufffd\\u001e+ZZ\\ufffd:T\\ufffd(n\\\\\\u0001\\ufffdm\\ufffd\\u0002\\ufffd\\ufffd\\b^\\ufffd;A\\u0014f\\u001ddh\\ufffdAy>\\ufffdqʚ\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\\\h\\ufffdw9\\ufffd\\ufffd\\u0019\\u0000%\\ufffd:\\u0003\\ufffdH\\ufffd\\ufffd\\ufffd;\\ufffd\\ufffdW\\ufffd\\ufffd\\ufffd\\u000bD\\ufffd1\\ufffdJ7\\ufffd\\b+\\rcx\\u0011γ\\ufffdn\\ufffd_d\\ufffd\\ufffdEH\\u001d\\ufffd+ֻ\\ufffd0\\ufffd\\ufffdz\\u001d\\ufffd\\ufffd$r\\ufffd\\u001bXj3\\u0005K\\ufffdY'h\\ufffd#\\ufffdW\\ufffd\\ufffdE'\\ufffdA\\ufffd\\u0018\\ufffd&\\u000b\\ufffd\\u001d\\ufffdߺ0\\ufffd\\ufffd\\ufffd\\ufffdD\\ufffdlÿ\\n\\ufffd,\\ufffdT\\u0003,\\ufffd\\ufffd\\ufffdt26H\\ufffd\\\"\\u00021\\ufffdt\\u0002\\ufffd\\ufffdM6\\ufffd\\ufffdp\\ufffd\\ufffd\\ufffdZ\\u0003B\\ufffd\\ufffd\\u001a\\ufffd\\u0006Z\\ufffd\\ufffd\\u0019\\u0007Aw\\ufffdLf32Qvح\\u0011\\ufffd\\ufffd\\ufffd\\u0011\\u0018>\\ufffd\\n\\ufffdF\\ufffd\\ufffd\\ufffdZ\\ufffd/!\\ufffdG\\ufffd\\ufffd\\f\\u001d\\ufffd\\ufffd\\ufffd\\ufffd!ŢfU;pJ%\\\\\\u001cT3oN)܄m\\ufffd\\ufffdȿs\\u0007SN\\ufffd\\ufffdU\\ufffdɡl\\u001c\\ufffdE\\ufffd\\ufffd\\u0013\\ufffd&\\ufffd\\fnHtc\\ufffdy\\ufffd\\ufffd\\ufffdz\\ufffd\\ufffd\\f\\u000e\\ufffdv\\ufffd\\ufffd\\\\\\u001f\\ufffd\\u007f\\ufffd\\ufffd}\\ufffdQ\\ufffd=g\\ufffdfqf:\\ufffd\\ufffdOM?\\ufffd\\ufffd\\ufffdC޲\\ufffd8D\\u001d\\ufffd2\\ufffd6\\ufffdԲ\\ufffd\\ufffd\\ufffd\\ufffd Q\\ufffd\\ufffd\\ufffdsN\\ufffd\\u00178\\u0010,ӊ\\ufffd\\u001cӴ\\ufffd\\ufffd4\\ufffd9;\\u001fuM\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdDc\\ufffd\\ufffd6g\\ufffd\\ufffd\\u0013\\ufffdz\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\u0007ĺ\\ufffd4\\ufffdo.\\ufffd\\ufffd[m~\\ufffd\\u0000\\ufffdc\\u0000\\ufffd\\ufffdK\\ufffd\\ufffd\\t%\\ufffdY\\u000b\\fE_v\\u0003\\ufffd\\ufffd\\u0006l\\ufffd\\ufffd*\\ufffd\\u0011\\ufffd\\u001bZ\\n\\ufffd\\tޫDݰ_\\ufffd\\ufffd\\ufffdJ+\\u001a\\ufffd\\ufffdzX)\\ufffd\\ufffdn\\ufffdԍ\\ufffdzu\\u0018U+\\ufffd^\\ufffd\\u0011\\u001c,*N\\ufffdQva?\\ufffd+\\f\\ufffdʯ\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd}\\ufffd\\ufffd\\ufffd\\ufffd2\\ufffdI\\ufffd\\ufffd+\\ufffd\\ufffd1\\ufffd\\\\\\ufffdWk\\ufffd\\ufffd}v\\r\\ufffd\\ufffd\\ufffdf>@\\u0014H\\ufffdFmԮ\\ufffd{\\ufffdR\\ufffd\\ufffd\\u001d\\ufffd\\ufffdA\\ufffdUj\\ufffd\\u001b\\ufffdҠ\\ufffdo\\u000eF\\ufffd~\\ufffdj\\ufffd\\u001e\\u0005\\ufffdԀ\\ufffdn\\ufffd\\u001f6\\ufffd\\ufffdR\\ufffd\\ufffd\\ufffd\\ufffdFE\\ufffd\\ufffdj\\ufffd\\ufffda\\ufffd\\ufffd\\r\\ufffd\\ufffd\\ufffd0\\ufffd>\\ufffd\\ufffd\\u0018XyF\\u001f\\ufffd/\\ufffd\\ufffdƮk\\u007f\\u0002\\u0000\\u0000\\ufffd\\ufffd\\u0003\\u0000PK\\u0003\\u0004\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000\\ufffdF\\u0007\\u0002\\ufffd\\u0002\\u0000\\u0000\\n\\u0007\\u0000\\u0000\\r\\u0000\\u0000\\u0000xl/styles.xml\\ufffdUmo\\ufffd0\\u0010\\ufffd>i\\ufffd\\ufffd\\ufffdwj\\ufffd\\ufffd%\\u0011P-M\\ufffd*mӤvҾ:`\\u0012\\ufffd~A\\ufffddd\\ufffd\\ufffd\\ufffd\\ufffd@\\u0012\\ufffdvo\\ufffd\\ufffd%\\ufffd\\ufffd\\ufffds\\ufffd=w\\ufffd$W\\ufffd\\u0014h\\ufffdLõJqp\\ufffdc\\ufffdT\\ufffdK\\ufffd\\ufffd)\\ufffdt\\ufffd{s\\ufffd\\u001aKUI\\ufffdV,\\ufffd\\u0007\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\u0007\\ufffd\\ufffdv\\ufffdY\\u0004\\u0010\\ufffdI\\ufffd\\ufffd\\ufffdzIHS오ͅ\\ufffd\\ufffd\\ufffd\\ufffdJ\\u001bI-l͖4\\ufffda\\ufffdl\\ufffd%)H\\ufffd\\ufffd3\\\")Wx@X\\ufffd\\ufffdO@$5\\u000fm\\ufffd\\u0015Z\\ufffd\\ufffd\\ufffd\\r\\u0017\\ufffd\\u001ez,\\ufffdd\\ufffd\\ufffd\\ufffd*m\\ufffdF\\u0000\\ufffd.\\ufffdh\\ufffd\\ufffd`fBԙc\\ufffd\\ufffd\\ufffd$\\ufffd\\ufffdэ\\ufffd\\ufffd\\u0005\\ufffd\\u0012]U\\ufffd`O\\ufffd.Ȃ\\ufffd\\ufffd\\u0004\\ufffd/C\\nb⇏r\\ufffd\\ufffd\\u000b\\ufffd\\\"b؞\\ufffd\\ufffd\\ufffd,\\ufffd\\ufffd\\ufffd\\r*t\\ufffdl\\ufffdC \\ufffd$X>(\\ufffdE\\ufffd\\ufffd\\b*<zeI\\ufffd\\u0015\\ufffd\\ufffd\\u0000K\\ufffdI\\ufffd\\u0014Zh\\ufffd,\\ufffd\\u000e\\ufffd\\ufffd-\\ufffdJ6x\\\\S\\ufffd7\\ufffd;\\ufffd\\ufffdJ.\\u000e\\ufffd9t\\ufffd\\ufffdڣ\\ufffd䠽3\\u0012\\ufffdc`\\ufffd%\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\r\\ufffd\\ufffdBL\\u0014\\u0018\\fY\\u0002\\ufffdb\\ufffdQ9\\ufffd\\ufffdq}\\u007f\\ufffd!U\\u0005]=P\\ufffd\\ufffd\\ufffdzo\\r=\\u0004a<\\ufffd@\\ufffd\\ufffdY\\ufffdѦ\\ufffdWt\\ufffd\\ufffd\\ufffd<\\ufffd\\ufffdD\\ufffdʂ\\u0006\\ufffdow\\ufffdku\\r\\ufffd\\u001bm-tZ\\ufffd\\ufffd\\ufffdn\\ufffd\\ufffd\\ufffd\\ufffdv\\ufffd1. \\ufffd\\ufffd\\tq\\ufffd^\\ufffd\\ufffd\\ufffd\\u0011vW!\\ufffd\\ufffd\\\\\\ufffd\\ufffd2\\ufffd\\ufffdf\\ufffd\\ufffd\\ufffd%$2.\\u0007\\ufffda\\ufffd\\ufffdh\\u0003\\ufffd\\u00046\\u0004\\ufffd\\u007f\\u000f\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\u0001\\ufffd{\\ufffd\\ufffd\\ufffd6\\ufffdu-\\u000e\\ufffdG\\ufffd\\ufffd\\ufffd\\u0002\\ufffd\\ufffd\\u0004\\ufffd\\u00048\\ufffd\\ufffd\\\\\\ufffd\\ufffd\\ufffd\\ufffd\\u001b3\\u0002:~\\ufffd\\ufffd6-\\u0017\\ufffd\\ufffdg\\ufffd\\u0007̲;\\ufffd\\ufffdjZ72z\\ufffdOQ@ՒU\\ufffd\\u0015\\ufffd\\ufffdt\\ufffd\\ufffd\\ufffd\\ufffd=+y+ᑍ^\\u001f\\ufffd^\\ufffd\\u001e\\\"\\ufffd\\ufffd\\ufffd;W\\ufffd`\\ufffdb\\ufffdξk\\ufffdY\\ufffd\\u0017\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdb}\\ufffd\\ufffd\\ufffd\\ufffd_ͽ\\ufffd\\ufffd\\ufffd\\\"^\\ufffd\\ufffd8\\ufffd^\\ufffd\\ufffd\\ufffd\\ufffd\\u000f\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\u000fc\\ufffd\\ufffd\\ufffdP\\ufffd Z6\\u0002\\ufffd\\ufffd\\u0019\\ufffd\\u001d\\ufffdߝm)\\ufffdl\\u0006\\ufffd}\\ufffd\\u0003\\ufffd)\\ufffdE8\\ufffd\\ufffdƁ\\ufffd\\ufffd~\\ufffdE3:\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd \\\\Ϣ\\ufffdM\\ufffd\\ufffd\\u0013\\ufffd\\ufffd\\u000bǛO\\ufffd`\\u0018\\ufffd\\ufffd|\\ufffd\\ufffd\\\\2\\ufffdձV\\ufffd\\nM\\ufffdP$\\ufffd\\ufffd\\\"\\tr\\ufffd\\u00049\\ufffd\\ufffde?\\u0000\\u0000\\u0000\\ufffd\\ufffd\\u0003\\u0000PK\\u0003\\u0004\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000\\ufffd\\ufffd\\u000e\\ufffd\\u0000\\u0000\\u0000\\ufffd\\u0000\\u0000\\u0000\\u0014\\u0000\\u0000\\u0000xl/sharedStrings.xmll\\ufffdAj\\ufffd0\\u0010\\u0005\\ufffd}\\ufffdw\\u0010\\ufffd\\ufffd\\ufffdRB\\ufffd\\ufffdE!'p\\u000f\\ufffd\\ufffd\\u0013[ \\ufffd\\\\\\ufffd\\ufffd$\\ufffd\\ufffdJ)\\ufffd\\ufffd\\ufffd\\u007f\\ufffd\\u000f\\ufffd\\u001c/)\\ufffd\\r\\u000b\\ufffdL\\u0016v]\\u000f\\ni\\ufffdS\\ufffd\\ufffd\\ufffd\\ufffdpz9\\ufffdb\\ufffd4\\ufffd\\ufffd\\t-\\\\\\ufffd\\ufffd螟\\f\\ufffd\\ufffd\\ufffd%\\ufffd\\ufffd\\ufffd\\ufffd\\ufffdZ\\ufffd`\\ufffd\\ufffd\\ufffd\\u0015\\ufffd5\\ufffd\\\\\\ufffd\\ufffd\\u0016ˬy-\\ufffd'^\\u0010%E\\ufffd\\ufffd\\ufffd7\\ufffd| Pc\\ufffd$\\u0016^AU\\n\\ufffd\\u0015?\\ufffd\\ufffd3\\u001c\\ufffd\\u00117\\u0004\\ufffd1\\u001b-\\ufffd\\ufffd\\u001f\\ufffdխ\\ufffd)\\ufffd\\ufffd\\ufffd\\ufffd_\\ufffd\\u007f\\ufffd;\\ufffd\\ufffd\\ufffd\\ufffd\\u0000\\u0000\\u0000\\ufffd\\ufffd\\u0003\\u0000PK\\u0003\\u0004\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000D,r^P\\u0001\\u0000\\u0000}\\u0002\\u0000\\u0000\\u0011\\u0000\\b\\u0001docProps/core.xml \\ufffd\\u0004\\u0001(\\ufffd\\u0000\\u0001\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\ufffd\\ufffd_K\\ufffd0\\u0014\\ufffd\\ufffd\\u0005\\ufffdC\\ufffd{\\ufffd\\ufffd\\u0019NC\\ufffd\\ufffd\\u001c{r 8Q|\\u000b\\ufffd\\ufffd\\u0016l\\ufffd\\ufffd\\ufffdu\\ufffdӛ\\ufffd[\\ufffdL\\ufffd\\ufffd\\ufffd\\ufffd\\ufffd9\\ufffd䳃\\ufffd\\ufffd=\\u0018+\\ufffd*P\\u0012\\ufffd(\\u0000\\ufffd4\\u0017j[\\ufffd\\ufffd\\ufffd2\\ufffdE\\ufffduTqZi\\u0005\\u0005:\\ufffdE\\ufffd\\ufffd\\ufffd*g5a\\ufffd\\ufffd\\ufffd\\ufffd5\\u0018'\\ufffd\\u0006\\ufffd\\ufffd,au\\ufffdv\\ufffd\\ufffd\\u0004c\\ufffdv \\ufffd\\ufffd\\ufffdCyq\\ufffd\\ufffd\\ufffd\\ufffd\\u001f\\ufffd\\u0016ה\\ufffd\\ufffd-\\ufffd4\\ufffdo\\ufffd\\u0004G9u\\u0014\\ufffd\\ufffd\\ufffd\\u001e\\ufffd\\ufffd\\ufffdl@\\ufffd\\u001f\\ufffd\\ufffd\\u0000\\ufffda\\ufffd@\\ufffdr\\u0016'Q\\ufffd\\ufffd\\ufffd\\u000e\\ufffd\\ufffd\\ufffd\\u000et\\ufffd\\ufffd)\\ufffd;־\\ufffd)\\ufffd\\ufffdY/\\u000e\\ufffd\\u0015\\ufffd\\ufffdi\\ufffd\\ufffdɺ\\u0018>\\u007f\\ufffd_W\\u000fO]\\ufffdP\\ufffdvW\\fP\\ufffdsF\\ufffd\\u0001\\ufffd)\\u0017t/x\\ufffd\\ufffd~M\\n>\\ufffd\\ufffd\\ufffdĞ\\ufffd\\u001c\\ufffd,\\ufffd:+j\\ufffd\\ufffdo~#\\ufffdϏ\\u007fN]:\\ufffd[]\\ufffd\\ufffdA\\ufffd\\ufffd\\u000fK\\ufffdjg\\ufffd%\\ufffd_\\ufffd\\ufffd\\ufffdL\\ufffdt\\u0012Ɠ0\\ufffd\\ufffd\\ufffd-\\ufffd\\ufffdH\\ufffd\\ufffd\\ufffdA~̷\\ufffd\\ufffd\\u000by\\ufffd\\ufffd?b\\ufffd\\ufffdɔd\\ufffd\\u0011\\ufffd\\f(s|\\ufffda\\ufffd/\\u0000\\u0000\\u0000\\ufffd\\ufffd\\u0003\\u0000PK\\u0003\\u0004\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000ȁ\\ufffdޗ\\u0001\\u0000\\u00001\\u0003\\u0000\\u0000\\u0010\\u0000\\b\\u0001docProps/app.xml \\ufffd\\u0004\\u0001(\\ufffd\\u0000\\u0001\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\ufffd\\ufffd\\ufffdn\\ufffd0\\f\\ufffd\\ufffd\\u0003\\ufffd\\u000e\\ufffdt(\\ufffd@VQ\\ufffd-rذ\\u0000I{\\ufffd$:\\ufffd&K\\ufffd\\ufffd\\u0018\\ufffd\\ufffdfϲ\\u0017\\ufffdl\\ufffd\\ufffd\\ufffd\\u001d\\u0006\\ufffdF\\ufffd~\\u007f&%qwjl\\ufffdbLƻ\\ufffd\\ufffdg%+\\ufffd)\\ufffd\\ufffd\\ufffdW\\ufffdy\\ufffdt\\ufffd\\ufffd\\u0015\\ufffd\\ufffdi\\ufffd\\ufffda\\ufffdΘ؝\\ufffd\\ufffd 6\\ufffd\\u0007\\ufffdd0\\u0015\\ufffd¥\\ufffd\\u001d\\ufffd\\u0092\\ufffd\\u000e\\ufffd@\\ufffde\\ufffde\\ufffd\\ufffd\\ufffd\\u0001\\ufffdi\\ufffds_\\ufffdF\\ufffdW\\ufffd\\u0006\\u001d\\ufffdEY\\ufffdr<\\u0011:\\ufffd\\ufffd:\\ufffd\\ufffdlp\\\\\\ufffd\\ufffd^S\\ufffdUǗ^v琁\\ufffd\\ufffd\\u000f\\ufffd\\u001a\\u0005\\ufffd\\ufffdR~1*\\ufffd\\ufffdk*\\u001eO\\n\\ufffd\\ufffdSQd\\ufffd-\\ufffdc4t\\ufffd\\ufffd\\ufffd\\ufffdTl\\u0015X\\\\ecY\\ufffdM(\\ufffd[A\\ufffd\\u0011\\ufffd\\ufffdm\\ufffd\\ufffd$EK\\ufffd\\u0016\\u0015\\ufffdX$\\ufffd3\\ufffdm\\ufffd\\ufffdo\\ufffd\\ufffdéX\\u000bр\\ufffd\\ufffdյ\\rI\\u001fې(ʵ\\ufffd\\u000e\\ufffd\\ufffdX\\ufffd߿\\ufffd:Z/x\\ufffd\\u001b\\ufffd>\\ufffd\\u001e\\ufffd\\ufffd\\ufffd\\\\\\ufffd\\r9\\ufffdl\\ufffd\\f\\u0006\\ufffd,\\\\\\ufffd\\ufffd\\fYL_\\ufffd\\rD\\ufffd\\u001fx\\ufffd0`\\u000f8\\u001a\\b\\ufffdS\\ufffd\\u0011\\ufffdS\\u0006\\ufffd)x?\\ufffd\\ufffd\\ufffd\\ufffdGW\\ufffd\\t\\ufffd\\ufffdY\\u0018\\ufffd\\ufffd\\ufffd\\ufffdH\\ufffda\\ufffd\\u001f\\ufffd\\ufffduܗE\\ufffd=@D\\ufffd74\\ufffdc,\\ufffdu\\ufffdt\\ufffd\\ufffd\\ufffd\\ufffd\\u0000n\\ufffd\\ufffd\\ufffd\\ufffd_\\ufffd\\ufffd\\u001c/\\ufffd\\u000b\\ufffd\\ufffd\\ufffdYyS\\ufffdOj\\ufffd\\ufffd\\ufffdu\\ufffd\\u0007\\u0000\\u0000\\ufffd\\ufffd\\u0003\\u0000PK\\u0001\\u0002-\\u0000\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000\\u0012\\u0018\\ufffd\\ufffdd\\u0001\\u0000\\u0000\\u0018\\u0005\\u0000\\u0000\\u0013\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000[Content_Types].xmlPK\\u0001\\u0002-\\u0000\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000\\ufffdU0#\\ufffd\\u0000\\u0000\\u0000L\\u0002\\u0000\\u0000\\u000b\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\ufffd\\u0003\\u0000\\u0000_rels/.relsPK\\u0001\\u0002-\\u0000\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000!0R\\u0019t\\u0003\\u0000\\u0000\\ufffd\\b\\u0000\\u0000\\u000f\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\ufffd\\u0006\\u0000\\u0000xl/workbook.xmlPK\\u0001\\u0002-\\u0000\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000J\\ufffd\\ufffda\\ufffd\\u0000\\u0000\\u0000G\\u0003\\u0000\\u0000\\u001a\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000c\\n\\u0000\\u0000xl/_rels/workbook.xml.relsPK\\u0001\\u0002-\\u0000\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000օ_j\\ufffd\\u0002\\u0000\\u0000{\\u0005\\u0000\\u0000\\u0018\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\ufffd\\f\\u0000\\u0000xl/worksheets/sheet1.xmlPK\\u0001\\u0002-\\u0000\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000b.\\u0010\\ufffd\\u0013\\u0002\\u0000\\u0000\\ufffd\\u0003\\u0000\\u0000\\u0018\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000y\\u000f\\u0000\\u0000xl/worksheets/sheet2.xmlPK\\u0001\\u0002-\\u0000\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000\\ufffdMl\\ufffdV\\u0007\\u0000\\u0000\\ufffd \\u0000\\u0000\\u0013\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\ufffd\\u0011\\u0000\\u0000xl/theme/theme1.xmlPK\\u0001\\u0002-\\u0000\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000\\ufffdF\\u0007\\u0002\\ufffd\\u0002\\u0000\\u0000\\n\\u0007\\u0000\\u0000\\r\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000I\\u0019\\u0000\\u0000xl/styles.xmlPK\\u0001\\u0002-\\u0000\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000\\ufffd\\ufffd\\u000e\\ufffd\\u0000\\u0000\\u0000\\ufffd\\u0000\\u0000\\u0000\\u0014\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000>\\u001c\\u0000\\u0000xl/sharedStrings.xmlPK\\u0001\\u0002-\\u0000\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000D,r^P\\u0001\\u0000\\u0000}\\u0002\\u0000\\u0000\\u0011\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\\"\\u001d\\u0000\\u0000docProps/core.xmlPK\\u0001\\u0002-\\u0000\\u0014\\u0000\\u0006\\u0000\\b\\u0000\\u0000\\u0000!\\u0000ȁ\\ufffdޗ\\u0001\\u0000\\u00001\\u0003\\u0000\\u0000\\u0010\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\u0000\\ufffd\\u001f\\u0000\\u0000docProps/app.xmlPK\\u0005\\u0006\\u0000\\u0000\\u0000\\u0000\\u000b\\u0000\\u000b\\u0000\\ufffd\\u0002\\u0000\\u0000v\\\"\\u0000\\u0000\\u0000\\u0000\"\n}"
+						}
+					]
+				},
+				{
+					"name": "nearbyLocationsMapBox",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/events/nearbyLocations?id_event=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"events",
+								"nearbyLocations"
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "11.00583",
+									"disabled": true
+								},
+								{
+									"key": "longitude",
+									"value": "-74.82743",
+									"disabled": true
+								},
+								{
+									"key": "id_event",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "nearbyLocationsMapBox",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/events/nearbyLocations?id_event=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"events",
+										"nearbyLocations"
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "11.00583",
+											"disabled": true
+										},
+										{
+											"key": "longitude",
+											"value": "-74.82743",
+											"disabled": true
+										},
+										{
+											"key": "id_event",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "449"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 21 Apr 2024 02:28:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"type\": \"Events\",\n    \"msg\": \"Event retrieved\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Juegos Olimpicos\",\n            \"location\": {\n                \"x\": 10.5537,\n                \"y\": -74.4803\n            },\n            \"location_name\": \"Estadio Roberto Martinez\",\n            \"nearby_locations\": [\n                {\n                    \"id\": \"place.5654578\",\n                    \"type\": \"Feature\",\n                    \"relevance\": 1,\n                    \"name\": \"Pivijay, Magdalena, Colombia\",\n                    \"coordinates\": [\n                        -74.61696,\n                        10.465403\n                    ]\n                },\n                {\n                    \"id\": \"region.66610\",\n                    \"type\": \"Feature\",\n                    \"relevance\": 1,\n                    \"name\": \"Magdalena, Colombia\",\n                    \"coordinates\": [\n                        -74.1950883,\n                        11.2320988\n                    ]\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "validateTokenJwt",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20iLCJ1c2VyaWQiOjEyMywicGFzc3dvcmQiOiJzZWNyZXQiLCJpYXQiOjE3MTM0ODIwMTgsImV4cCI6MTcxMzUwODQxOH0.ey_j2QAPRXuPFLX7jPQQqiHNcuohbJ5LohlEplAbMuM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/auth/validateToken",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"validateToken"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "validateTokenJwt",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/validateToken",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"validateToken"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "36"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Apr 2024 19:57:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Successfully authenticated\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getTokenJwt",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Verifica si la respuesta es exitosa (código de estado 200)\r",
+									"if (responseCode.code === 200) {\r",
+									"    // Parsea el cuerpo de la respuesta como JSON\r",
+									"    const responseBody = pm.response.json();\r",
+									"    // Extrae el token JWT y el correo electrónico del cuerpo de la respuesta\r",
+									"    const token = responseBody.token;\r",
+									"    const email = responseBody.email;\r",
+									"    // Almacena el token JWT y el correo electrónico en variables de entorno\r",
+									"    pm.environment.set(\"token\", token);\r",
+									"    pm.environment.set(\"email\", email);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"test@example.com\",\r\n    \"userid\" : \"123\",\r\n    \"password\" : \"secret\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/auth/generateAccessToken",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"generateAccessToken"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getTokenJwt",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"davidmartinez@dasvid.com\",\r\n    \"userid\" : \"123\",\r\n    \"password\" : \"2213dasd3\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/generateAccessToken",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"generateAccessToken"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "272"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Apr 2024 20:10:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhdmlkbWFydGluZXpAZGFzdmlkLmNvbSIsInVzZXJpZCI6IjEyMyIsInBhc3N3b3JkIjoiMjIxM2Rhc2QzIiwiaWF0IjoxNzEzNDcxMDQzLCJleHAiOjE3MTM0OTc0NDN9.wWqJQ4tGdrAz2oSnkNRvejfCx7Aaq4ELC5tW1tbMXVk\",\n    \"email\": \"davidmartinez@dasvid.com\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Assistants",
+			"item": [
+				{
+					"name": "assistantsGetAll",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/assistants/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"assistants",
+								"getAll"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "assistantsGetAll",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/assistants/getAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"assistants",
+										"getAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "564"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 22:44:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"Assistants retrieved\",\n    \"assistants\": {\n        \"status\": 200,\n        \"message\": \"Assistants retrieved successfully\",\n        \"data\": [\n            {\n                \"id\": 1,\n                \"user_name\": \"deivis\",\n                \"user_email\": \"devis@example.com\",\n                \"event_name\": \"Juegos Olimpicos\",\n                \"city_name\": \"Barranquilla\",\n                \"country_name\": \"Colombia\",\n                \"created_at\": \"2024-04-19T22:43:16.000Z\",\n                \"updated_at\": \"2024-04-19T22:43:16.000Z\"\n            },\n            {\n                \"id\": 2,\n                \"user_name\": \"dwivis\",\n                \"user_email\": \"dwvis@example.com\",\n                \"event_name\": \"Mundial de Futbol\",\n                \"city_name\": \"Bogota\",\n                \"country_name\": \"Colombia\",\n                \"created_at\": \"2024-04-19T22:43:16.000Z\",\n                \"updated_at\": \"2024-04-19T22:43:16.000Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "assistantsSearch",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/assistants/search?user_id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"assistants",
+								"search"
+							],
+							"query": [
+								{
+									"key": "user_name",
+									"value": "dwivis23",
+									"disabled": true
+								},
+								{
+									"key": "user_id",
+									"value": "2"
+								},
+								{
+									"key": "user_email",
+									"value": "devis@example.com",
+									"disabled": true
+								},
+								{
+									"key": "event_id",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "event_name",
+									"value": "Juegos Olimpicos",
+									"disabled": true
+								},
+								{
+									"key": "city_id",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "city_name",
+									"value": "Barranquilla",
+									"disabled": true
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "country_name",
+									"value": "Colombia",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "assistantsSearch",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/assistants/search?user_id=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"assistants",
+										"search"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "user_name",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "user_id",
+											"value": "2"
+										},
+										{
+											"key": "user_email",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "event_name",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "city_id",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "city_name",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "country_id",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "country_name",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "312"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Apr 2024 23:24:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"assistants\": {\n        \"status\": 200,\n        \"message\": \"Assistants retrieved successfully\",\n        \"data\": [\n            {\n                \"id\": 1,\n                \"user_name\": \"deivis\",\n                \"user_email\": \"devis@example.com\",\n                \"event_name\": \"Juegos Olimpicos\",\n                \"city_name\": \"Barranquilla\",\n                \"country_name\": \"Colombia\",\n                \"created_at\": \"2024-04-19T22:43:16.000Z\",\n                \"updated_at\": \"2024-04-19T22:43:16.000Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "assistantsAdd",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_user\": 13,\r\n  \"id_event\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/assistants/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"assistants",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "assistantsAdd",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id_user\": 7,\r\n  \"id_event\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/assistants/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"assistants",
+										"add"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "vary",
+									"value": "Origin"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "143"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Apr 2024 14:07:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=72"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"New assistant added\",\n    \"newAssistant\": {\n        \"status\": 201,\n        \"message\": \"Assistant created successfully\",\n        \"data\": {\n            \"id\": 5,\n            \"id_user\": 7,\n            \"id_event\": 3\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

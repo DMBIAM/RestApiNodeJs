@@ -1,0 +1,48 @@
+name: CD
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+    branches:
+      - test
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  id-token: write
+
+jobs:
+  deploy-docker-hub:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        id: login_docker_hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push Docker Image to Docker Hub
+        id: push_image
+        run: |
+          docker build -t davidmartinezb1/nodejs-rest-api-fastity:latest .
+          docker push davidmartinezb1/nodejs-rest-api-fastity:latest
+  
+  deploy-kubernetes:
+    runs-on: ubuntu-20.04
+    needs: deploy-docker-hub
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Deploy to Kubernetes
+        id: deploy_kubernetes
+        run: |
+          kubectl apply -f kubernetes/api.yml
+          kubectl apply -f kubernetes/db.yml

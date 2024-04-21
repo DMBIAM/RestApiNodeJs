@@ -1,0 +1,75 @@
+apiVersion: v1
+data:
+  AUTH_EMAIL: dGVzdEBleGFtcGxlLmNvbQ==
+  AUTH_PASSWORD: c2VjcmV0
+  AUTH_USERID: MTIz
+  BD_HOST: MTkyLjE2OC4xMC4zOQ==
+  BD_NAME: YXBpX2Ri
+  BD_PWD: J3Rlc3Qn
+  BD_USER: cm9vdA==
+  CONNECTION_LIMIT: MTA=
+  JWT_SECRET_KEY: J3Rlc3RAIyQlJCc=
+  MAPBOX_ACCESS_TOKEN: J3BrLmV5SjFJam9pWkcxaWFXRnRJaXdpWVNJNkltTnNkamh4Y214MWJUQXhPR0l5YkhKeGFuRnZiSEV3TjI4aWZRLmpfVVJsY01kUFFoVUt2bkx6SWVSWkEn
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: api-secret
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restapi-nodejs-kubernetes
+  labels: 
+    app: restapi-nodejs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: restapi-nodejs
+  template:
+    metadata:
+      labels:
+        app: restapi-nodejs
+    spec:
+      containers:
+        - name: kubernetes-restapi-nodejs
+          image: app_restapi_nodejs:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: api-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: restapi-nodejs-service
+spec:
+  selector:
+    app: restapi-nodejs
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: restapi-nodejs-ingress
+spec:
+  rules:
+    - host: restapinodejs.localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: restapi-nodejs-service
+                port:
+                  number: 8000
