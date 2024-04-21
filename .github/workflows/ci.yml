@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - test
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    env:
+      REPO: ${{ secrets.DOCKERHUB_REPO }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  
+
+      - name: Build and not push Docker image
+        id: build_image
+        run: |
+          docker build \
+            --load \
+            -t $REPO .
+      
+      - name: Run Unit Tests
+        id: run_unit_test
+        run: |
+          // Aqui el comando docker para ejecutar las pruebas unitarias
+        continue-on-error: true
+        if: always() && ${{ failure() }}
+      
+      - name: Static Code Analysis
+        id: run_static_code_analysis
+        run: // Aqui el comando docker para ejecutar el análisis de código estático
+        continue-on-error: true
+        if: always() && ${{ failure() }}
+
+      - name: Code Coverage
+        id: run_code_coverage
+        run: // Aqui el comando docker para ejecutar el análisis de cobertura de código estático
+        continue-on-error: true
+        if: always() && ${{ failure() }}
+
+      - name: Run for security analysis
+        id: run_security_analysis
+        run: // Aqui el comando docker para ejecutar el análisis de seguridad puede ser con alguna herramienta como Snyk
+        continue-on-error: true
+        if: always() && ${{ failure() }}
+
+      - name: Generate Failure Comment
+        id: create_issues
+        continue-on-error: true
+        if: always() && ${{ failure() }}
+        uses: actions/github-script@v7
+        env:
+          github-token: ${{ secrets.PERSONAL_TOKEN }}
+        with:
+          script: |
+            const stepName = context.job;
+            const { workflow, actor, runId, sha } = context;
+            const body = `
+              :x: **Step Name:** ${stepName}
+              :rocket: **Workflow:** ${workflow}
+              :octocat: **Actor:** ${actor}
+              :rocket: **Run ID:** ${runId}
+              :bookmark: **SHA:** ${sha}
+              \n\n
+              One or more steps encountered issues. Please review them at https://github.com/DMBIAM/RestApiNodeJs/actions/runs/${runId}.
+            `;
+            if (context.payload.issue) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body,
+                title: stepName,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: body,
+                title: stepName,
+              });
+            }

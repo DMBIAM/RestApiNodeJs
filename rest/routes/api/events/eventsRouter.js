@@ -6,6 +6,8 @@ import UpdateEventsController from '../../../controllers/events/updateEventsCont
 import DeleteEventsController from '../../../controllers/events/deleteEventsController.js';
 import SearchNearestEventsController from '../../../controllers/events/searchNearestEventsController.js'; 
 import AttendancePerDayEventsController from '../../../controllers/events/attendancePerDayEventsController.js'; 
+import ExcelUpdloadEventsController from '../../../controllers/events/excelUpdloadEventsController.js';
+import NearbyLocationsEventsController from '../../../controllers/events/nearbyLocationsEventsController.js';
 
 async function UsersRouter(fastify) {
     
@@ -127,7 +129,7 @@ async function UsersRouter(fastify) {
     fastify.get('/api/v1/events/searchNearest', { 
         preValidation: [fastify.jwtauthenticate],
         schema: {
-            description: "Buscar el evento más cercano dada una coordenada.",
+            description: "Buscar el evento más cercano dada una coordenada, utilizando funciones de MYSQL.",
             tags: ['Events'],
             summary: 'Buscar el evento más cercano',
             security: [{ "bearerAuth": [] }],
@@ -292,6 +294,125 @@ async function UsersRouter(fastify) {
         }
     });
 
+    // Ruta para cargar eventos desde un archivo Excel
+    fastify.post('/api/v1/events/uploadExcel', {
+        preValidation: [fastify.jwtauthenticate],
+        schema: {
+            description: 'Upload events from an Excel file.',
+            tags: ['Events'],
+            summary: 'Upload events from Excel',
+            security: [{ "bearerAuth": [] }],
+            consumes: ['multipart/form-data'],
+            body: {
+                properties: {
+                    file: {
+                        type: 'string',
+                        format: 'binary'
+                    }
+                },
+                required: ['file']
+            }
+        }
+    }, async function (req, res) {  
+        try {
+            const resultUpdload  = await ExcelUpdloadEventsController.uploadExcelFile(req, res);
+            return resultUpdload ;
+        } catch (error) {
+            throw boom.boomify(error);
+        }
+    });
+
+    // Ruta para buscar eventos cercanos utilizando mapbox
+    fastify.get('/api/v1/events/nearbyLocations', { 
+        preValidation: [fastify.jwtauthenticate],
+        schema: {
+            description: "Buscar eventos cercanos utilizando mapbox",
+            tags: ['Events'],
+            summary: 'buscar eventos cercanos utilizando mapbox',
+            security: [{ "bearerAuth": [] }],
+            querystring: {
+                type: 'object',
+                properties: {
+                    id_event: { type: 'number' },
+                },
+                required: ['id_event']
+            },
+            response: {
+                200: {
+                    description: 'Evento recuperado exitosamente',
+                    type: 'object',
+                    properties: {
+                        status: { type: 'number' },
+                        type: { type: 'string' },
+                        msg: { type: 'string' },
+                        data: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                properties: {
+                                    id: { type: 'number' },
+                                    name: { type: 'string' },
+                                    location: {
+                                        type: 'object',
+                                        properties: {
+                                            x: { type: 'number' },
+                                            y: { type: 'number' }
+                                        }
+                                    },
+                                    location_name: { type: 'string' },
+                                    nearby_locations: {
+                                        type: 'array',
+                                        items: {
+                                            type: 'object',
+                                            properties: {
+                                                id: { type: 'string' },
+                                                type: { type: 'string' },
+                                                relevance: { type: 'number' },
+                                                name: { type: 'string' },
+                                                coordinates: {
+                                                    type: 'array',
+                                                    items: { type: 'number' }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                404: {
+                    description: 'Evento no encontrado',
+                    type: 'object',
+                    properties: {
+                        status: { type: 'number' },
+                        error: { type: 'boolean' },
+                        msg: { type: 'string' }
+                    }
+                },
+                500: {
+                    description: 'Error interno del servidor',
+                    type: 'object',
+                    properties: {
+                        status: { type: 'number' },
+                        error: { type: 'boolean' },
+                        msg: { type: 'string' }
+                    }
+                }
+            }
+        }
+    }, async function (req, res) {  
+        try {
+            const events = await NearbyLocationsEventsController.search(req, res);
+            return events;
+        } catch (error) {
+            if (error.status === 404) {
+                res.status(404).send({ status: error.status, error: false, msg: "Event not found" });
+            } else {
+                throw boom.boomify(error);
+            }
+        }
+    });
     
 }
 

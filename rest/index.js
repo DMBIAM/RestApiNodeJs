@@ -7,6 +7,7 @@ import UsersRouter from './routes/api/users/usersRouter.js';
 import EventsRouter from './routes/api/events/eventsRouter.js';
 import AssistantsRouter from './routes/api/assistants/assistantsRouter.js';
 import fastifyJwt from '@fastify/jwt';
+import fastifyMultipart from '@fastify/multipart';
 import fastifySwagger from '@fastify/swagger';
 import path from 'path';
 import fastifyAutoload from '@fastify/autoload';
@@ -19,7 +20,7 @@ dotenv.config();
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 // Crear una instancia de Fastify con registro de logs
-const fastify =  Fastify({ logger:true });
+const fastify = Fastify({ logger:true, ajv: { plugins: [fastifyMultipart.ajvFilePlugin] } });
 
 // Registrar el plugin de JWT para la autenticación
 fastify.register(fastifyJwt, { secret: process.env.JWT_SECRET_KEY });
@@ -45,6 +46,25 @@ fastify.register(AssistantsRouter);
 // Registrar el plugin de Swagger para la documentación de la API
 fastify.register(fastifySwagger, { ...SwaggerOptions });
 
+// Registrar el plugin para manejo de archivos mediante fastify
+fastify.register(fastifyMultipart, {
+  attachFieldsToBody: true, 
+  sharedSchemaId: 'uploadFile',
+  limits: {
+    files: 1 
+  }
+});
+
+// Custom content-type parser for Excel files
+// application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+fastify.addContentTypeParser('*', function (request, payload, done) {
+  var data = ''
+  payload.on('data', chunk => { data += chunk })
+  payload.on('end', () => {
+    done(null, data);
+  })
+})
+
 // Auto cargar todas las routes para registrarlas en Swagger
 fastify.register(fastifyAutoload, {
   dir: path.join(__dirname, 'routes')
@@ -55,9 +75,9 @@ fastify.addContentTypeParser('application/json', { parseAs: 'string' }, (req, bo
   try {
       const json = JSON.parse(body);
       done(null, json);
-  } catch (err) {
-      err.statusCode = 400;
-      done(err, undefined);
+  } catch (error) {
+      error.statusCode = 400;
+      done(error, undefined);
   }
 }); 
 

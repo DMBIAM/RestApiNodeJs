@@ -13,7 +13,7 @@ export const SwaggerOptions = {
       },
       host: 'localhost:8000',
       schemes: ["http", "https"],
-      consumes: ['application/json'],
+      consumes: ['application/json','multipart/form-data'],
       produces: ['application/json'],
       tags: [{ name: "Default", description: "Default" }],
       securityDefinitions: {
