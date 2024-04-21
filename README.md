@@ -357,8 +357,13 @@ Nota: Este DML es para apoyo, para efectos prácticos del ejercicio el llenado d
 Ubicación: resources\bd\api_db.sql
 
 ### Ejemplo de flujo CI/CD con Github Actions
+
+Archivos:
+
 - \.github\workflows\ci.yml
 - \.github\workflows\ci.yml
+
+Los anteriores archivos, permiten generan un flujo de CI/CD en Github Actions, de tal forma que podamos tener un proceso de integración y despliegue continuo base a implementar para nuestro proyecto.
 
 ### Diagrama arquitectura híbrida on-premise y cloud
 ![Architecture](https://github.com/DMBIAM/RestApiNodeJs/blob/main/resources/pic-evidence/hybrid_cloud_on_premise_architecture.png)
@@ -375,7 +380,27 @@ Explicación:
 - La idempotencia se logra mediante el diseño adecuado de las API y la gestión de errores. 
 - La escalabilidad se logra escalando horizontalmente los servidores de API según sea necesario y utilizando servicios en la nube para proporcionar recursos adicionales cuando sea necesario.
 
+### Recurso extra
+
+1. **Orquestación de cluster mediante Kubernetes**
+
+Dentro del proyecto encontrará un ejemplo de como orquestar cluster utilizando Kubernetes, estos están separados para crear cluster para el api y para el motor de la base de datos.
+
+Archivos de ejemplo:
+
+- kubernetes\api.yml
+- kubernetes\dc.yml
+
+El cluster de api tiene un ingress que permite utilizar el recurso de las api mediante la url restapinodejs.localhost, la cual puede ser actualizada por una de preferencia.
+
+
+1. **Colecciones y environment Postman**
+
+- resources\postman-collection\nodeRestApi.postman_collection.json
+- resources\postman-collection\nodeRestApi.postman_environment.json
+
+Los anteriores archivos contienen collection con ejemplos guardados de todos los recursos disponibles mediante el api. de igual forma se incluye un environment para reutilizar el token en cada request ejecutado, así como otros datos que permiten agilizar la utilización de los recursos desde postman.
+
 ### Video explicación del proyecto
 
 [Video](https://drive.google.com/drive/folders/1SoEc4gZRFNVvvbf6qVWosE0CIhNpavXk?usp=sharing)
-
